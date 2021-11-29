@@ -138,7 +138,7 @@ export default {
       console.log('clickDeprovision')
       this.$buefy.dialog.confirm({
         title: 'Deprovision',
-        message: `Are you sure you want to deprovision this Webex v5 user <strong>${this.jwtUser.username} (${this.jwtUser.id})</strong>?`,
+        message: `Are you sure you want to deprovision this Webex v6 user <strong>${this.jwtUser.username} (${this.jwtUser.id})</strong>?`,
         rounded: true,
         confirmText: 'Confirm',
         type: 'is-danger',

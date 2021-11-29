@@ -1,5 +1,5 @@
 <template>
-  <panel title="Provision Webex Contact Center v5" aria-id="provision">
+  <panel title="Provision Webex Contact Center v6" aria-id="provision">
     <p v-if="isLocked">
       <!-- provisioning is not enabled for this instance -->
       Provisioning is disabled for this demo instance. Please try using

@@ -1,0 +1,31 @@
+<html>
+  <body>
+    hi
+    <button onclick="speechSynthesis.cancel()">stop</button>
+  </body>
+  <script>
+    // speechSynthesis.onvoiceschanged = function() {
+      // speechSynthesis.getVoices().forEach(function(voice, index) {
+        // console.log(index, voice.name, voice.default ? '(default)' :'')
+        // .html(voice.name + (voice.default ? ' (default)' :''));
+      // })
+    // }
+
+
+    var msg = new SpeechSynthesisUtterance()
+    var voices = window.speechSynthesis.getVoices()
+    console.log('voices', voices)
+    msg.voice = voices[0]
+    // msg.text = `<speak xml:lang="En-US" version="1.0">Thank you for calling cumulus city. <break time="200ms"/> Hello <break time="50ms"/> coty condry<break time="200ms"/> I can see you are calling to request trash pickup <break time="200ms"/> You will now be connected with one of our representatives.</speak>`
+    msg.text = `<speak xml:lang="En-US" version="1.0"><say-as interpret-as="letters">Hello</say-as></speak>`
+
+    msg.onend = function(e) {
+      console.log('Finished in ' + e.elapsedTime + ' seconds.')
+    }
+
+    speechSynthesis.speak(msg)
+    // speechSynthesis.cancel()
+
+</script>
+
+</html>

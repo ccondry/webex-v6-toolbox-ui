@@ -1,5 +1,5 @@
 # webex-v6-toolbox-ui
-The dCloud Webex Contact Center v4 Instant Demo web portal UI project. It is
+The dCloud Webex Contact Center v6 Instant Demo web portal UI project. It is
 built on Vue.js 2.6 (including vue-router and vuex), using Webpack 4.
 
 ## Development

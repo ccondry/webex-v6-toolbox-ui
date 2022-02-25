@@ -30,8 +30,8 @@ const getters = {
       user: authUrlBase + '/user',
       session: mmUrlBase + '/sessions',
       instance: authUrlBase + '/instance',
-      layout: authUrlBase + '/webex-v6/cjp/layout',
-      globalLayout: authUrlBase + '/webex-v6/cjp/global-layout',
+      layout: authUrlBase + '/webex-v6/user/layout',
+      globalLayout: authUrlBase + '/webex-v6/user/global-layout',
       image: verticalUrlBase + '/images'
     }
   },

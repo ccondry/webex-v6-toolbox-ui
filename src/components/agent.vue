@@ -52,9 +52,9 @@
       style="white-space: nowrap;"
       >
         <strong>
-          Salesforce Login: sjeffers@cc1.dc-01.com
+          Salesforce Login: sjeffers@cc.dc-01.com
         </strong>
-        <copy value="sjeffers@cc1.dc-01.com" name="Salesforce Login" />
+        <copy value="sjeffers@cc.dc-01.com" name="Salesforce Login" />
       </p>
 
       <!-- rdp username -->

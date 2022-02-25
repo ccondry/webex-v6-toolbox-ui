@@ -15,10 +15,10 @@ const state = {
     'SNG': 'APJ'
   },
   vpnMap: {
-    'RTP': 'vpn.cc1.dc-01.com',
-    'SNG': 'vpn.cc1.dc-02.com',
-    'LON': 'vpn.cc1.dc-03.com',
-    'SJC': 'vpn.cc1.dc-05.com'
+    'RTP': 'vpn.cc.dc-01.com',
+    'SNG': 'vpn.cc.dc-02.com',
+    'LON': 'vpn.cc.dc-03.com',
+    'SJC': 'vpn.cc.dc-05.com'
   }
 }
 
@@ -40,13 +40,14 @@ const getters = {
     const url = 'https://mc.cxdemo.net/'
     const query = {
       datacenter: 'webex',
-      sessionId: demoVersion,
+      sessionId: 'v6',
       userId: getters.jwtUser.id,
       username: getters.jwtUser.firstName + ' ' + getters.jwtUser.lastName
     }
     return addUrlQueryParams(url, query)
   },
-  urlDatacenter: (state, getters) => {
+  caCertUrl: () => 'https://mm-static.cxdemo.net/dcloud-root-ca.crt',
+  datacenter: state => {
     // return the datacenter according to the browser URL
     if (getters.isProduction) {
       // get current hostname of the browser location
@@ -61,8 +62,6 @@ const getters = {
       return 'RTP'
     }
   },
-  caCertUrl: () => 'https://mm-static.cxdemo.net/dcloud-root-ca.crt',
-  datacenter: state => state.instance.datacenter,
   sessionId: state => state.instance.session,
   datacenterDisplayName: (state, getters) => {
     return state.datacenterNames[getters.datacenter]
@@ -119,7 +118,7 @@ const actions = {
       options: {
         query: {
           demo: 'webex',
-          version: demoVersion,
+          version: 'v6',
           instant: true
         }
       },
@@ -150,9 +149,9 @@ const actions = {
       url: getters.endpoints.instance,
       options: {
         query: {
-          datacenter: getters.urlDatacenter,
+          datacenter: getters.datacenter,
           demo: 'webex',
-          version: demoVersion
+          version: 'v6'
         }
       },
       mutation: types.SET_INSTANCE,

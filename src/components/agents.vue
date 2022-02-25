@@ -21,7 +21,7 @@ export default {
   data () {
     return {
       imageFolder: 'https://mm.cxdemo.net/static/images/cumulus/common',
-      loginDomain: 'cc1.dc-01.com'
+      loginDomain: 'cc.dc-01.com'
     }
   },
 

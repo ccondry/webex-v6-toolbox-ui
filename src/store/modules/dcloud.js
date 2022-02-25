@@ -133,7 +133,8 @@ const actions = {
       url: getters.endpoints.vertical,
       options: {
         query: {
-          all: true,
+          // all: true,
+          owner: getters.jwtUser.username,
           summary: true
         }
       },

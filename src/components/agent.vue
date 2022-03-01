@@ -215,6 +215,19 @@
         />
       </p>
 
+      <!-- IMI username -->
+      <p
+      v-if="userDemoConfig.imiUsername"
+      >
+        <span style="white-space: nowrap; display: block;">
+          <strong>
+            IMI Connect Username:
+            {{ userDemoConfig.imiUsername }}
+          </strong>
+          <copy :value="userDemoConfig.imiUsername" name="IMI Connect Username" />
+        </span>
+      </p>
+
       <!-- admin IMI Connect URL -->
       <p
       v-if="['Administrator'].includes(agent.role)"
@@ -243,6 +256,7 @@
         name="Management Portal URL"
         />
       </p>
+
     </article>
   </div>
 </template>
@@ -261,7 +275,8 @@ export default {
   computed: {
     ...mapGetters([
       'demoInfo',
-      'loading'
+      'loading',
+      'userDemoConfig'
     ]),
     isLoading () {
       return this.loading.dcloud.demo

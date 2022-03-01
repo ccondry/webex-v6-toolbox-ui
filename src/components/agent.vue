@@ -244,7 +244,7 @@
           target="_blank"
           >
             <span
-            style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 24rem; vertical-align: top;"
+            style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 24rem; vertical-align: top;"
             >
               {{ imiConnectUrl }}
             </span>

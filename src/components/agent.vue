@@ -214,6 +214,35 @@
         name="Management Portal URL"
         />
       </p>
+
+      <!-- admin IMI Connect URL -->
+      <p
+      v-if="['Administrator'].includes(agent.role)"
+      style="white-space: nowrap; "
+      >
+        <strong
+        style="display: inline-block"
+        >
+          IMI Connect:
+          <span v-show="isLoading">Loading...</span>
+          <a
+          v-show="imiConnectUrl.length > 0"
+          :href="imiConnectUrl"
+          target="_blank"
+          >
+            <span
+            style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; width: 24rem; vertical-align: top;"
+            >
+              {{ imiConnectUrl }}
+            </span>
+          </a>
+        </strong>
+        <copy
+        v-show="imiConnectUrl.length > 0"
+        :value="imiConnectUrl"
+        name="Management Portal URL"
+        />
+      </p>
     </article>
   </div>
 </template>
@@ -257,6 +286,13 @@ export default {
     adminManagementPortalUrl () {
       try {
         return this.demoInfo.links.adminManagementPortal
+      } catch (e) {
+        return 'Loading...'
+      }
+    },
+    imiConnectUrl () {
+      try {
+        return this.demoInfo.links.imiConnect
       } catch (e) {
         return 'Loading...'
       }

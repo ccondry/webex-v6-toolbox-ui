@@ -21,7 +21,6 @@ const state = {
     webex: {}
   },
   isProduction: process.env.NODE_ENV === 'production',
-  demoEnvironment: {},
   uiVersion: version,
   authApiVersion: 'Loading...'
 }
@@ -30,7 +29,6 @@ const getters = {
   isProduction: state => state.isProduction,
   loading: state => state.loading,
   working: state => state.working,
-  demoEnvironment: state => state.demoEnvironment,
   uiVersion: state => state.uiVersion,
   authApiVersion: state => state.authApiVersion
 }

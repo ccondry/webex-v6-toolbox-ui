@@ -46,17 +46,6 @@
         <copy :value="agent.username" name="Webex Username" />
       </p>
 
-      <!-- salesforce login -->
-      <p
-      v-if="['Agent'].includes(agent.role)"
-      style="white-space: nowrap;"
-      >
-        <strong>
-          Salesforce Login: sjeffers@cc.dc-01.com
-        </strong>
-        <copy value="sjeffers@cc.dc-01.com" name="Salesforce Login" />
-      </p>
-
       <!-- rdp username -->
       <p
       v-if="['Agent', 'Supervisor'].includes(agent.role)"
@@ -110,6 +99,28 @@
         :value="agentPortalUrl"
         name="Agent Desktop URL"
         />
+      </p>
+
+      <!-- salesforce login -->
+      <p
+      v-if="['Agent'].includes(agent.role)"
+      style="white-space: nowrap;"
+      >
+        <strong>
+          Salesforce Login: sjeffers@cc.dc-01.com
+        </strong>
+        <copy value="sjeffers@cc.dc-01.com" name="Salesforce Login" />
+      </p>
+
+      <!-- salesforce password -->
+      <p
+      v-if="['Agent'].includes(agent.role)"
+      style="white-space: nowrap;"
+      >
+        <strong>
+          Salesforce Password: C1sco12345!!
+        </strong>
+        <copy value=" C1sco12345!!" name="Salesforce Password" />
       </p>
 
       <!-- agent salesforce desktop URL -->

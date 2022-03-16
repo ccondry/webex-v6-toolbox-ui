@@ -20,7 +20,7 @@ const getters = {
     }
 
     return {
-      webex: authUrlBase + '/resource/joinWebexSupportRoom',
+      webex: authUrlBase + '/resource/joinWebexV6SupportRoom',
       authVersion: authUrlBase + '/version',
       logout: authUrlBase + '/logout',
       demoInfo: mmUrlBase + '/demo',

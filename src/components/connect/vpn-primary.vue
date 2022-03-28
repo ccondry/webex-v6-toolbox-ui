@@ -85,7 +85,7 @@ export default {
         },
         onConfirm: (password) => {
           console.log('changing password...')
-          this.provisionUser(password)
+          this.provisionUser({password})
         }
       })
     },

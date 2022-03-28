@@ -114,7 +114,7 @@ const actions = {
       console.log(e)
     }
   },
-  async provisionUser ({dispatch, getters}, password) {
+  async provisionUser ({dispatch, getters}, {password, imiEmail}) {
     try {
       // start user provision
       await dispatch('fetch', {
@@ -127,7 +127,8 @@ const actions = {
           body: {
             demo: 'webex',
             version: 'v6',
-            password
+            password,
+            imiEmail
           }
         }
       })

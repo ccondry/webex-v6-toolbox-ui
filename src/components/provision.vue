@@ -35,6 +35,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import ProvisionModal from './provision-modal'
 
 export default {
   computed: {
@@ -57,21 +58,20 @@ export default {
       'provisionUser'
     ]),
     clickProvision () {
-      console.log('user clicked Provision Me button')
-      let message = `Please set a password for your VPN account. <br>Do `
-      message += `not re-use your Cisco account password.`,
-      this.$buefy.dialog.prompt({
-        title: 'Provision',
-        message,
-        inputAttrs: {
-          placeholder: 'Your new VPN password',
-          type: 'password'
+      this.$buefy.modal.open({
+        parent: this,
+        // component: PromptModal,
+        component: ProvisionModal,
+        hasModalCard: true,
+        trapFocus: true,
+        canCancel: ['escape'],
+        props: {
+          imiEmail: this.user.demo['webex-v6'].imiEmail
         },
-        rounded: true,
-        confirmText: 'Submit',
-        type: 'is-success',
-        onConfirm: password => {
-          this.provisionUser(password)
+        events: {
+          submit: (password, imiEmail) => {
+            this.provisionUser({password, imiEmail})
+          }
         }
       })
     }

@@ -52,12 +52,12 @@ export default {
       }
     }
   },
-
   methods: {
     ...mapActions([
       'provisionUser'
     ]),
     clickProvision () {
+      const emailParts = this.jwtUser.email.split('@')
       this.$buefy.modal.open({
         parent: this,
         // component: PromptModal,
@@ -66,7 +66,7 @@ export default {
         trapFocus: true,
         canCancel: ['escape'],
         props: {
-          imiEmail: this.userDemoConfig.imiEmail
+          imiEmail: this.userDemoConfig.imiEmail || `${emailParts[0]}+dcloudwxcc@${emailParts[1]}`
         },
         events: {
           submit: ({password, imiEmail}) => {

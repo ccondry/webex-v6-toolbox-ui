@@ -69,7 +69,7 @@ export default {
           imiEmail: this.user.demo['webex-v6'].imiEmail
         },
         events: {
-          submit: (password, imiEmail) => {
+          submit: ({password, imiEmail}) => {
             this.provisionUser({password, imiEmail})
           }
         }

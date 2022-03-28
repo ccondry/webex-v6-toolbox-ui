@@ -23,13 +23,13 @@
       </p>
       <b-field label="VPN Password">
         <b-input
-        v-model="password"
+        v-model="input.password"
         type="password"
         />
       </b-field>
       <b-field label="IMI Account Email">
         <b-input
-        v-model="imiEmail"
+        v-model="input.imiEmail"
         />
       </b-field>
     </section>
@@ -86,9 +86,13 @@ export default {
   },
 
   watch: {
-    imiEmail (val) {
-      this.input.imiEmail = val
+    imiEmail () {
+      this.input.imiEmail = this.imiEmail
     }
+  },
+
+  mounted () {
+    this.input.imiEmail = this.imiEmail
   },
 
   methods: {

@@ -76,7 +76,7 @@ export default {
           imiEmail: this.userDemoConfig.imiEmail || `${emailParts[0]}+dcloudwxcc@${emailParts[1]}`
         },
         events: {
-          submit: (password, imiEmail) => {
+          submit: ({password, imiEmail}) => {
             this.provisionUser({password, imiEmail})
           }
         }

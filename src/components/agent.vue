@@ -239,33 +239,60 @@
         </span>
       </p>
 
-      <!-- admin IMI Connect URL -->
+      <!-- admin IMI Connect -->
       <p
       v-if="['Administrator'].includes(agent.role)"
-      style="white-space: nowrap; "
       >
-        <strong
-        style="display: inline-block"
+        <span
+        style="white-space: nowrap; display: block;"
         >
-          IMI Connect:
-          <span v-show="isLoading">Loading...</span>
-          <a
-          v-show="imiConnectUrl.length > 0"
-          :href="imiConnectUrl"
-          target="_blank"
+          <!-- email -->
+          <strong
+          style="display: inline-block"
           >
+            IMI Connect Username:
+            <span v-show="isLoading">Loading...</span>
             <span
+            v-show="!isLoading"
             style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 24rem; vertical-align: top;"
             >
-              {{ imiConnectUrl }}
+              {{ imiEmail }}
             </span>
-          </a>
-        </strong>
-        <copy
-        v-show="imiConnectUrl.length > 0"
-        :value="imiConnectUrl"
-        name="Management Portal URL"
-        />
+          </strong>
+          <copy
+          v-show="!isLoading"
+          :value="imiEmail"
+          name="IMI Connect Username"
+          />
+        </span>
+        
+        <span
+        style="white-space: nowrap; display: block;"
+        >
+          <!-- URL -->
+          <strong
+          style="display: inline-block"
+          >
+            IMI Connect:
+            <span v-show="isLoading">Loading...</span>
+            <a
+            v-show="imiConnectUrl.length > 0"
+            :href="imiConnectUrl"
+            target="_blank"
+            >
+              <span
+              style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 24rem; vertical-align: top;"
+              >
+                {{ imiConnectUrl }}
+              </span>
+            </a>
+          </strong>
+          <copy
+          v-show="imiConnectUrl.length > 0"
+          :value="imiConnectUrl"
+          name="IMI Connect URL"
+          />
+        </span>
       </p>
 
     </article>
@@ -285,6 +312,7 @@ export default {
 
   computed: {
     ...mapGetters([
+      'jwtUser',
       'demoInfo',
       'loading',
       'userDemoConfig'
@@ -322,6 +350,10 @@ export default {
       } catch (e) {
         return 'Loading...'
       }
+    },
+    imiEmail () {
+      const emailParts = this.jwtUser.email.split('@')
+      return this.userDemoConfig.imiEmail || `${emailParts[0]}+dcloudwxcc@${emailParts[1]}`
     },
     webexAdminPortalUrl () {
       try {

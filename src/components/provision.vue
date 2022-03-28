@@ -42,7 +42,8 @@ export default {
     ...mapGetters([
       'working',
       'isLocked',
-      'userDemoConfig'
+      'userDemoConfig',
+      'jwtUser'
     ]),
     buttonText () {
       if (this.working.user.provision) {

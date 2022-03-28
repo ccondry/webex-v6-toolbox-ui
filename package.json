@@ -1,7 +1,7 @@
 {
   "name": "webex-v6-toolbox-ui",
   "description": "UI for the dCloud Webex v6 Instant Demo Toolbox",
-  "version": "2022.3.28",
+  "version": "2022.3.28-1",
   "author": "Coty Condry <ccondry@cisco.com>",
   "main": "dist/js/index.common.js",
   "unpkg": "dist/js/index.js",

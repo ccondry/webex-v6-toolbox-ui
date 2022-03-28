@@ -10,15 +10,6 @@
     </p>
     <div class="buttons">
       <b-button
-      :disabled="working.user.provision || working.user.imiResend"
-      type="is-primary"
-      rounded
-      expanded
-      @click.prevent="clickResendImi"
-      >
-        Re-send IMI Connect Invitation Email
-      </b-button>
-      <b-button
       :disabled="working.user.provision"
       type="is-primary"
       rounded
@@ -85,18 +76,6 @@ export default {
         type: 'is-success',
         onConfirm: password => {
           this.provisionUser(password)
-        }
-      })
-    },
-    clickResendImi () {
-      this.$buefy.dialog.prompt({
-        title: 'Resend IMI Connect Email',
-        message: `Do you want the IMI Connect invitation email to be re-sent to your email address?`,
-        rounded: true,
-        confirmText: 'Yes',
-        type: 'is-success',
-        onConfirm: () => {
-          this.resendImiEmail()
         }
       })
     }

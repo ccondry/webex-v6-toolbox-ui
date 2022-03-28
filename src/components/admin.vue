@@ -5,59 +5,29 @@
     <p>
       Manually enter this user's demo configuration, then click Save.
     </p>
+
     <!-- vertical -->
     <b-field label="Vertical ID">
       <b-input v-model="model.vertical" />
     </b-field>
 
-    <!-- queue -->
+    <!-- status -->
     <b-field label="Provision Status">
       <b-input v-model="model.provision" />
     </b-field>
 
-    <!-- chat template -->
-    <b-field label="Chat Template ID">
+    <!-- VPN Username -->
+    <b-field label="VPN Username">
       <b-input
-      v-model="model.templateId"
-      :placeholder="defaults.templateId"
+      v-model="model.vpnUsername"
       />
     </b-field>
 
-    <!-- org -->
-    <b-field label="Org ID">
+    <!-- IMI Email -->
+    <b-field label="IMI Email">
       <b-input
-      v-model="model.orgId"
-      :placeholder="defaults.orgId"
+      v-model="model.imiEmail"
       />
-    </b-field>
-
-    <!-- DC -->
-    <b-field label="DC">
-      <b-input
-      v-model="model.DC"
-      :placeholder="defaults.DC"
-      />
-    </b-field>
-
-    <!-- app ID -->
-    <b-field label="Cisco App ID">
-      <b-input
-      v-model="model.CiscoAppId"
-      :placeholder="defaults.CiscoAppId"
-      />
-    </b-field>
-
-    <!-- prefix -->
-    <b-field label="App Prefix">
-      <b-input
-      v-model="model.appPrefix"
-      :placeholder="defaults.appPrefix"
-      />
-    </b-field>
-
-    <!-- async -->
-    <b-field label="Async">
-      <b-checkbox v-model="model.async" />
     </b-field>
 
     <!-- Save Button -->

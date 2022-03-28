@@ -38,6 +38,9 @@
         <!-- Laptop Demo -->
         <laptop-demo v-if="isProvisioned" />
 
+        <!-- IMI Connect -->
+        <imi-connect v-if="isProvisioned" />
+        
         <!-- Reprovision -->
         <reprovision v-if="isProvisioned" />
 
@@ -70,6 +73,7 @@ import MobileApp from './components/mobile-app'
 import LaptopDemo from './components/laptop-demo'
 import Connect from './components/connect'
 import DesktopLayout from './components/desktop-layout'
+import ImiConnect from './components/imi-connect'
 
 export default {
   components: {
@@ -86,7 +90,8 @@ export default {
     MobileApp,
     LaptopDemo,
     Connect,
-    DesktopLayout
+    DesktopLayout,
+    ImiConnect
   },
 
   computed: {

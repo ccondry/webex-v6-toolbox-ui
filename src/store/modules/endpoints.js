@@ -14,7 +14,7 @@ const getters = {
       authUrlBase = 'http://localhost:3032/api/v1/auth'
       verticalUrlBase = 'http://localhost:3033/api/v1/verticals'
 
-      // use production services
+      // use production services in development
       authUrlBase = 'https://dcloud-collab-toolbox-rtp.cxdemo.net/api/v1/auth'
       verticalUrlBase = 'https://dcloud-collab-toolbox-rtp.cxdemo.net/api/v1/verticals'
     }
@@ -32,7 +32,8 @@ const getters = {
       instance: authUrlBase + '/instance',
       layout: authUrlBase + '/webex-v6/user/desktop-layout/my',
       globalLayout: authUrlBase + '/webex-v6/user/desktop-layout/global',
-      image: verticalUrlBase + '/images'
+      image: verticalUrlBase + '/images',
+      imiResend: authUrlBase + '/webex-v6/imi-resend',
     }
   },
   defaultRestOptions: (state, getters) => {

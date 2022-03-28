@@ -137,6 +137,19 @@ const actions = {
       console.log(e)
     }
   },
+  resendImiEmail ({dispatch, getters}, password) {
+    // re-send the IMI activation email
+    return dispatch('fetch', {
+      group: 'user',
+      type: 'imiResend',
+      message: 'Re-send IMI Connect activation email',
+      showNotification: true,
+      url: getters.endpoints.imiResend,
+      options: {
+        method: 'POST'
+      }
+    })
+  },
   getUser ({dispatch, getters}) {
     dispatch('fetch', {
       group: 'user',

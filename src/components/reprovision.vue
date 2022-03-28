@@ -8,7 +8,16 @@
       This will check that all your logins, extensions, queues, etc. are created
       properly.
     </p>
-    <b-field>
+    <div class="buttons">
+      <b-button
+      :disabled="working.user.provision || working.user.imiResend"
+      type="is-primary"
+      rounded
+      expanded
+      @click.prevent="clickResendImi"
+      >
+        Re-send IMI Connect Invitation Email
+      </b-button>
       <b-button
       :disabled="working.user.provision"
       type="is-primary"
@@ -18,7 +27,7 @@
       >
         {{ buttonText }}
       </b-button>
-    </b-field>
+    </div>
   </panel>
 </template>
 
@@ -51,7 +60,8 @@ export default {
 
   methods: {
     ...mapActions([
-      'provisionUser'
+      'provisionUser',
+      'resendImiEmail'
     ]),
     startTimer () {
       // advance the timer every 1 second
@@ -75,6 +85,18 @@ export default {
         type: 'is-success',
         onConfirm: password => {
           this.provisionUser(password)
+        }
+      })
+    },
+    clickResendImi () {
+      this.$buefy.dialog.prompt({
+        title: 'Resend IMI Connect Email',
+        message: `Do you want the IMI Connect invitation email to be re-sent to your email address?`,
+        rounded: true,
+        confirmText: 'Yes',
+        type: 'is-success',
+        onConfirm: () => {
+          this.resendImiEmail()
         }
       })
     }

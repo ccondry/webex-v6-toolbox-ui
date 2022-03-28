@@ -66,7 +66,7 @@ export default {
         trapFocus: true,
         canCancel: ['escape'],
         props: {
-          imiEmail: this.user.demo['webex-v6'].imiEmail
+          imiEmail: this.userDemoConfig.imiEmail
         },
         events: {
           submit: ({password, imiEmail}) => {

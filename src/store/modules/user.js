@@ -138,11 +138,11 @@ const actions = {
     }
   },
   resendImiEmail ({dispatch, getters}, password) {
-    // re-send the IMI activation email
+    // re-send the IMI invitation email
     return dispatch('fetch', {
       group: 'user',
       type: 'imiResend',
-      message: 'Re-send IMI Connect activation email',
+      message: 'Re-send IMI Connect invitation email',
       showNotification: true,
       url: getters.endpoints.imiResend,
       options: {

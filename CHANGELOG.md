@@ -4,6 +4,13 @@ Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
 
+# 2022.4.19
+
+### Fixes
+* **Agents:** Update "IMI Connect" labels to be "Webex Connect". Add password
+info for Webex Connect.
+
+
 # 2022.3.1
 
 ### Features

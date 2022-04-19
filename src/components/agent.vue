@@ -257,15 +257,15 @@
         <span
         style="white-space: nowrap; display: block;"
         >
-          <p
-          style="display: inline-block"
+          <strong
           >
             Webex Connect Password:
-            <span
-            style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 24rem; vertical-align: top;"
-            >
-              The password you chose when using the activation email
-            </span>
+          </strong>
+          <span
+          style="white-space: nowrap; vertical-align: top;"
+          >
+            The password you chose when using the activation email
+          </span>
         </span>
         
         <!-- imi URL -->

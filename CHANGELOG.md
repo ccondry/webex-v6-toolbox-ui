@@ -4,6 +4,12 @@ Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
 
+# 2022.4.19-2
+
+### Fixes
+* **Agents:** Bold the Webex Connect label, and don't hide text overflow.
+
+
 # 2022.4.19-1
 
 ### Fixes

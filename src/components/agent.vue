@@ -226,7 +226,7 @@
         />
       </p>
 
-      <!-- admin IMI Connect -->
+      <!-- admin Webex Connect -->
       <p
       v-if="['Administrator'].includes(agent.role)"
       >
@@ -249,7 +249,7 @@
           <copy
           v-show="!isLoading"
           :value="imiEmail"
-          name="IMI Connect Username"
+          name="Webex Connect Username"
           />
         </span>
 
@@ -292,7 +292,7 @@
           <copy
           v-show="imiConnectUrl.length > 0"
           :value="imiConnectUrl"
-          name="IMI Connect URL"
+          name="Webex Connect URL"
           />
         </span>
       </p>

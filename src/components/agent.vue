@@ -226,31 +226,18 @@
         />
       </p>
 
-      <!-- IMI username -->
-      <p
-      v-if="userDemoConfig.imiUsername"
-      >
-        <span style="white-space: nowrap; display: block;">
-          <strong>
-            IMI Connect Username:
-            {{ userDemoConfig.imiUsername }}
-          </strong>
-          <copy :value="userDemoConfig.imiUsername" name="IMI Connect Username" />
-        </span>
-      </p>
-
       <!-- admin IMI Connect -->
       <p
       v-if="['Administrator'].includes(agent.role)"
       >
+        <!-- imi email -->
         <span
         style="white-space: nowrap; display: block;"
         >
-          <!-- email -->
           <strong
           style="display: inline-block"
           >
-            IMI Connect Username:
+            Webex Connect Username:
             <span v-show="isLoading">Loading...</span>
             <span
             v-show="!isLoading"
@@ -265,15 +252,30 @@
           name="IMI Connect Username"
           />
         </span>
-        
+
+        <!-- imi password -->
         <span
         style="white-space: nowrap; display: block;"
         >
-          <!-- URL -->
+          <p
+          style="display: inline-block"
+          >
+            Webex Connect Password:
+            <span
+            style="display: inline-block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 24rem; vertical-align: top;"
+            >
+              The password you chose when using the activation email
+            </span>
+        </span>
+        
+        <!-- imi URL -->
+        <span
+        style="white-space: nowrap; display: block;"
+        >
           <strong
           style="display: inline-block"
           >
-            IMI Connect:
+            Webex Connect:
             <span v-show="isLoading">Loading...</span>
             <a
             v-show="imiConnectUrl.length > 0"

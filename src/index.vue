@@ -94,6 +94,12 @@ export default {
     ImiConnect
   },
 
+  data () {
+    return {
+      interval: null
+    }
+  },
+
   computed: {
     ...mapGetters([
       'isLoggedIn',

@@ -38,32 +38,6 @@ export default {
         mac: 'https://mm-static.cxdemo.net/anyconnect-macos-4.10.00093-predeploy-k9.dmg'
       }
     }
-  },
-
-  methods: {
-    ...mapActions([
-      'copyToClipboard',
-      'provisionUser'
-    ]),
-    clickResetPassword () {
-      this.$buefy.dialog.prompt({
-        title: 'Reset Demo VPN Password',
-        message: `Enter your new demo VPN password:`,
-        type: 'is-success',
-        confirmText: 'Submit',
-        rounded: true,
-        inputAttrs: {
-          type: 'password'
-        },
-        onConfirm: (password) => {
-          console.log('changing password...')
-          this.provisionUser({password})
-        }
-      })
-    },
-    clickCopy (string, type) {
-      this.copyToClipboard({string, type})
-    }
   }
 }
 </script>

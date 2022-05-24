@@ -139,8 +139,8 @@ const actions = {
     }
   },
   async resetPassword ({dispatch, getters}, password) {
-    // reset user VPN password
-    return dispatch('fetch', {
+    // request reset user VPN password
+    await dispatch('fetch', {
       group: 'user',
       type: 'resetPassword',
       message: 'reset VPN password',
@@ -155,6 +155,8 @@ const actions = {
         }
       }
     })
+    // get updated user data
+    await dispatch('getUser')
   },
   resendImiEmail ({dispatch, getters}, password) {
     // re-send the IMI invitation email

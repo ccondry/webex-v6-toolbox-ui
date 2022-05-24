@@ -11,6 +11,13 @@
       <b-input v-model="model.vertical" />
     </b-field>
 
+    <!-- Action -->
+    <b-field label="Action">
+      <b-input
+      v-model="model.action"
+      />
+    </b-field>
+
     <!-- status -->
     <b-field label="Provision Status">
       <b-select v-model="model.provision">

@@ -42,7 +42,7 @@
         <imi-connect v-if="isProvisioned" />
         
         <!-- Reprovision -->
-        <reprovision v-if="isProvisioned" />
+        <!-- <reprovision v-if="isProvisioned" /> -->
 
         <!-- Admin -->
         <admin v-if="isAdmin || isAdminSu" />
@@ -65,7 +65,7 @@ import Provision from './components/provision'
 import ProvisionProgress from './components/provision-progress'
 import Agents from './components/agents'
 import DemoWebsite from './components/demo-website'
-import Reprovision from './components/reprovision'
+// import Reprovision from './components/reprovision'
 import AppFooter from './components/app-footer'
 // import Debug from './components/debug'
 import Admin from './components/admin'
@@ -83,7 +83,7 @@ export default {
     ProvisionProgress,
     Agents,
     DemoWebsite,
-    Reprovision,
+    // Reprovision,
     AppFooter,
     // Debug,
     Admin,

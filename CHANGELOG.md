@@ -4,6 +4,16 @@ Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
 
+# 2022.5.24
+
+### Fixes
+* **Reprovision:** Remove reprovision button and panel for standard users.
+* **VPN:** Update the Reset VPN Password button and function to only reset the
+VPN password instead of reprovisioning.
+* **Admin:** Update admin panel with drop-down menu for status, and add the
+VPN password reset action field.
+
+
 # 2022.4.19-2
 
 ### Fixes

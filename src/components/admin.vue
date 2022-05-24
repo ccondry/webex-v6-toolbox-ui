@@ -13,7 +13,15 @@
 
     <!-- status -->
     <b-field label="Provision Status">
-      <b-input v-model="model.provision" />
+      <b-select v-model="model.provision">
+        <option
+        v-for="status of provisionStatuses"
+        :key="status"
+        :value="status"
+        >
+          {{ status }}
+        </option>
+      </b-select>
     </b-field>
 
     <!-- VPN Username -->
@@ -64,7 +72,14 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      model: {}
+      model: {},
+      provisionStatuses: [
+        'complete',
+        'started',
+        'error',
+        'action',
+        ''
+      ]
     }
   },
 

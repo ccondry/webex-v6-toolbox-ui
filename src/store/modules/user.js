@@ -138,6 +138,23 @@ const actions = {
       console.log(e)
     }
   },
+  async resetPassword ({dispatch, getters}, password) {
+    // reset user VPN password
+    return dispatch('fetch', {
+      group: 'user',
+      type: 'resetPassword',
+      message: 'reset VPN password',
+      url: getters.endpoints.resetPassword,
+      options: {
+        method: 'POST',
+        body: {
+          demo: 'webex',
+          version: 'v6',
+          password
+        }
+      }
+    })
+  },
   resendImiEmail ({dispatch, getters}, password) {
     // re-send the IMI invitation email
     return dispatch('fetch', {

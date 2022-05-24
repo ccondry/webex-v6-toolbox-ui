@@ -26,6 +26,7 @@ const getters = {
       demoInfo: mmUrlBase + '/demo',
       vertical: mmUrlBase + '/verticals',
       provision: authUrlBase + '/provision',
+      resetPassword: authUrlBase + '/webex-v6/user/reset-password',
       userDemoConfig: authUrlBase + '/user/demo',
       user: authUrlBase + '/user',
       session: mmUrlBase + '/sessions',

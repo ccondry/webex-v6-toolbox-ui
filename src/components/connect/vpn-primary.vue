@@ -70,8 +70,7 @@ export default {
 
   methods: {
     ...mapActions([
-      'copyToClipboard',
-      'provisionUser'
+      'resetPassword'
     ]),
     clickResetPassword () {
       this.$buefy.dialog.prompt({
@@ -85,12 +84,9 @@ export default {
         },
         onConfirm: (password) => {
           console.log('changing password...')
-          this.provisionUser({password})
+          this.resetPassword(password)
         }
       })
-    },
-    clickCopy (string, type) {
-      this.copyToClipboard({string, type})
     }
   }
 }

@@ -59,7 +59,8 @@ export default {
     ...mapGetters([
       'vpnAddress',
       'userDemoConfig',
-      'instance'
+      'instance',
+      'working'
     ]),
     vpnUsername () {
       try {

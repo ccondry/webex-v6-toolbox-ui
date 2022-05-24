@@ -144,6 +144,7 @@ const actions = {
       group: 'user',
       type: 'resetPassword',
       message: 'reset VPN password',
+      showNotification: true,
       url: getters.endpoints.resetPassword,
       options: {
         method: 'POST',

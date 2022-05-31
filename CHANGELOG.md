@@ -4,6 +4,12 @@ Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
 
+# 2022.5.31-1
+
+### Fixes
+* **Webex Connect:** Update IMI Connect text to Webex Connect.
+
+
 # 2022.5.31
 
 ### Fixes

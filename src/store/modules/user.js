@@ -163,7 +163,7 @@ const actions = {
     return dispatch('fetch', {
       group: 'user',
       type: 'imiResend',
-      message: 'Re-send IMI Connect invitation email',
+      message: 'Re-send Webex Connect invitation email',
       showNotification: true,
       url: getters.endpoints.imiResend,
       options: {

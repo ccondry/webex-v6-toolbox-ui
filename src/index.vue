@@ -38,8 +38,8 @@
         <!-- Laptop Demo -->
         <laptop-demo v-if="isProvisioned" />
 
-        <!-- IMI Connect -->
-        <imi-connect v-if="isProvisioned" />
+        <!-- Webex Connect -->
+        <webex-connect v-if="isProvisioned" />
         
         <!-- Reprovision -->
         <!-- <reprovision v-if="isProvisioned" /> -->
@@ -73,7 +73,7 @@ import MobileApp from './components/mobile-app'
 import LaptopDemo from './components/laptop-demo'
 import Connect from './components/connect'
 import DesktopLayout from './components/desktop-layout'
-import ImiConnect from './components/imi-connect'
+import WebexConnect from './components/imi-connect'
 
 export default {
   components: {
@@ -91,7 +91,7 @@ export default {
     LaptopDemo,
     Connect,
     DesktopLayout,
-    ImiConnect
+    WebexConnect
   },
 
   data () {

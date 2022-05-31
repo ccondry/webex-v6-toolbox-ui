@@ -38,8 +38,8 @@
       />
     </b-field>
 
-    <!-- IMI Email -->
-    <b-field label="IMI Email">
+    <!-- Webex Connect Email -->
+    <b-field label="Webex Connect Email">
       <b-input
       v-model="model.imiEmail"
       />

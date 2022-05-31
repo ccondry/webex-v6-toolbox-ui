@@ -230,7 +230,7 @@
       <p
       v-if="['Administrator'].includes(agent.role)"
       >
-        <!-- imi email -->
+        <!-- Webex Connect email -->
         <span
         style="white-space: nowrap; display: block;"
         >
@@ -253,7 +253,7 @@
           />
         </span>
 
-        <!-- imi password -->
+        <!-- Webex Connect password -->
         <span
         style="white-space: nowrap; display: block;"
         >
@@ -268,7 +268,7 @@
           </span>
         </span>
         
-        <!-- imi URL -->
+        <!-- Webex Connect URL -->
         <span
         style="white-space: nowrap; display: block;"
         >

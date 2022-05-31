@@ -158,8 +158,8 @@ const actions = {
     // get updated user data
     await dispatch('getUser')
   },
-  resendImiEmail ({dispatch, getters}, password) {
-    // re-send the IMI invitation email
+  resendWebexConnectEmail ({dispatch, getters}, password) {
+    // re-send the Webex Connect invitation email
     return dispatch('fetch', {
       group: 'user',
       type: 'imiResend',

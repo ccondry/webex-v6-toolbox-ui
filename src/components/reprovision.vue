@@ -55,7 +55,7 @@ export default {
   methods: {
     ...mapActions([
       'provisionUser',
-      'resendImiEmail'
+      'resendWebexConnectEmail'
     ]),
     startTimer () {
       // advance the timer every 1 second

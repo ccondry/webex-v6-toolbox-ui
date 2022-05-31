@@ -27,7 +27,7 @@
         type="password"
         />
       </b-field>
-      <b-field label="IMI Account Email">
+      <b-field label="Webex Connect Account Email">
         <b-input
         v-model="input.imiEmail"
         />

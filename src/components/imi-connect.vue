@@ -1,5 +1,5 @@
 <template>
-  <panel title="IMI Connect" aria-id="imi-connect">
+  <panel title="Webex Connect" aria-id="webex-connect">
     <p>
       Your Webex Connectaccount invitation email should have been sent to you.
     </p>
@@ -31,17 +31,17 @@ export default {
 
   methods: {
     ...mapActions([
-      'resendImiEmail'
+      'resendWebexConnectEmail'
     ]),
     clickResendImi () {
       this.$buefy.dialog.confirm({
-        title: 'Resend Webex ConnectEmail',
-        message: `Do you want the Webex Connectinvitation email to be re-sent to your email address?`,
+        title: 'Resend Webex Connect Email',
+        message: `Do you want the Webex Connect invitation email to be re-sent to your email address?`,
         rounded: true,
         confirmText: 'Yes',
         type: 'is-success',
         onConfirm: () => {
-          this.resendImiEmail()
+          this.resendWebexConnectEmail()
         }
       })
     }

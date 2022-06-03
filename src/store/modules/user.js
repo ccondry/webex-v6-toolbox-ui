@@ -158,9 +158,9 @@ const actions = {
     // get updated user data
     await dispatch('getUser')
   },
-  changeWebexConnectEmail ({dispatch, getters}, email) {
+  async changeWebexConnectEmail ({dispatch, getters}, email) {
     // change the user's Webex Connect email
-    return dispatch('fetch', {
+    const response = await dispatch('fetch', {
       group: 'user',
       type: 'changeImiEmail',
       message: 'Change Webex Connect email',
@@ -171,6 +171,27 @@ const actions = {
         body: {email}
       }
     })
+    // if success
+    if (!(response instanceof Error)) {
+      try {
+        // update user data now
+        await dispatch('getUser')
+        // update user data until imiEmailStatus is no longer 'working'
+        // avoid infinite loops with maxRetries
+        let retryCount = 0
+        const maxRetries = 50
+        while (getters.userDemoConfig.imiEmailStatus === 'working' && retryCount < maxRetries) {
+          // wait a moment
+          await sleep(5000)
+          // update user data again
+          await dispatch('getUser')
+          // increment counter
+          retryCount++
+        }
+      } catch (e) {
+        console.log(e)
+      }
+    }
   },
   resendWebexConnectEmail ({dispatch, getters}) {
     // re-send the Webex Connect invitation email

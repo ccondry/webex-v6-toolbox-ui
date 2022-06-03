@@ -4,6 +4,15 @@ Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
 
+# 2022.6.3
+
+### Features
+* **Webex Connect:** Add button to change user's Webex Connect email address.
+
+### Fixes
+* **Webex Connect:** Fix typos.
+
+
 # 2022.5.31-1
 
 ### Fixes

@@ -35,6 +35,7 @@ const getters = {
       globalLayout: authUrlBase + '/webex-v6/user/desktop-layout/global',
       image: verticalUrlBase + '/images',
       imiResend: authUrlBase + '/webex-v6/imi-resend',
+      imiChangeEmail: authUrlBase + '/webex-v6/imi-change-email'
     }
   },
   defaultRestOptions: (state, getters) => {

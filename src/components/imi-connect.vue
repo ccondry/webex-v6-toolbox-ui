@@ -1,20 +1,33 @@
 <template>
   <panel title="Webex Connect" aria-id="webex-connect">
+    <b-loading :active="isWorking" :is-full-page="false" />
     <p>
-      Your Webex Connectaccount invitation email should have been sent to you.
+      Your Webex Connect account invitation email should have been sent to you
+      at
+      <strong>
+        {{ userDemoConfig.imiEmail }}.
+      </strong>
     </p>
     <p>
-      Would you like to have the Webex Connectinvitation email re-sent to you? 
+      You can change your Webex Connect email or have the invitation email
+      re-sent to you.
     </p>
-    <div class="buttons">
+    <div class="buttons" style="justify-content: space-evenly;">
       <b-button
-      :disabled="working.user.provision || working.user.imiResend"
+      :disabled="isWorking"
       type="is-primary"
       rounded
-      expanded
-      @click.prevent="clickResendImi"
+      @click.prevent="clickChangeEmail"
       >
-        Resend Webex ConnectInvitation Email
+        Change My Webex Connect Email
+      </b-button>
+      <b-button
+      :disabled="isWorking"
+      type="is-primary"
+      rounded
+      @click.prevent="clickResendEmail"
+      >
+        Resend Webex Connect Invitation Email
       </b-button>
     </div>
   </panel>
@@ -25,23 +38,47 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters([
-      'working'
-    ])
+      'working',
+      'userDemoConfig'
+    ]),
+    isWorking () {
+      return this.working.user.provision ||
+      this.working.user.imiResend ||
+      this.working.user.changeImiEmail ||
+      this.userDemoConfig.imiEmailStatus === 'working'
+    }
   },
 
   methods: {
     ...mapActions([
-      'resendWebexConnectEmail'
+      'resendWebexConnectEmail',
+      'changeWebexConnectEmail'
     ]),
-    clickResendImi () {
+    clickResendEmail () {
       this.$buefy.dialog.confirm({
         title: 'Resend Webex Connect Email',
-        message: `Do you want the Webex Connect invitation email to be re-sent to your email address?`,
+        message: `Do you want the Webex Connect invitation email to be re-sent to your <strong>${this.userDemoConfig.imiEmail}</strong>?`,
         rounded: true,
         confirmText: 'Yes',
         type: 'is-success',
         onConfirm: () => {
           this.resendWebexConnectEmail()
+        }
+      })
+    },
+    clickChangeEmail () {
+      this.$buefy.dialog.prompt({
+        title: 'Change Webex Connect Email',
+        message: `What would you like to change your Webex Connect email address to?`,
+        rounded: true,
+        confirmText: 'Confirm',
+        type: 'is-success',
+        inputAttrs: {
+          value: this.userDemoConfig.imiEmail,
+          placeholder: this.userDemoConfig.imiEmail,
+        },
+        onConfirm: (email) => {
+          this.changeWebexConnectEmail(email)
         }
       })
     }

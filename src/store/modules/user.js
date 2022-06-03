@@ -158,7 +158,21 @@ const actions = {
     // get updated user data
     await dispatch('getUser')
   },
-  resendWebexConnectEmail ({dispatch, getters}, password) {
+  changeWebexConnectEmail ({dispatch, getters}, email) {
+    // change the user's Webex Connect email
+    return dispatch('fetch', {
+      group: 'user',
+      type: 'changeImiEmail',
+      message: 'Change Webex Connect email',
+      showNotification: true,
+      url: getters.endpoints.imiChangeEmail,
+      options: {
+        method: 'POST',
+        body: {email}
+      }
+    })
+  },
+  resendWebexConnectEmail ({dispatch, getters}) {
     // re-send the Webex Connect invitation email
     return dispatch('fetch', {
       group: 'user',

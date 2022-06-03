@@ -1,6 +1,13 @@
 <template>
   <panel title="Webex Connect" aria-id="webex-connect">
     <b-loading :active="isWorking" :is-full-page="false" />
+    <b-message
+    v-if="userDemoConfig.imiEmailStatus === 'error'"
+    type="is-danger"
+    >
+      There was an error changing your Webex Connect email address:
+      <pre>{{ userDemoConfig.imiError }}</pre>
+    </b-message>
     <p>
       Your Webex Connect account invitation email should have been sent to you
       at

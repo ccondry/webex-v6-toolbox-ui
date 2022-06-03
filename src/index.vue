@@ -73,7 +73,7 @@ import MobileApp from './components/mobile-app'
 import LaptopDemo from './components/laptop-demo'
 import Connect from './components/connect'
 import DesktopLayout from './components/desktop-layout'
-import WebexConnect from './components/imi-connect'
+import WebexConnect from './components/webex-connect'
 
 export default {
   components: {

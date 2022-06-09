@@ -1,17 +1,16 @@
 <template>
   <panel title="Whatsapp" aria-id="whatsapp">
     <p>
-      Scan this QR code to send a Whatsapp message to
-      <strong>
-        {{ phone }}
-      </strong>
+      Scan the following QR code to send a Whatsapp message to
+      <strong>{{ phone }}</strong>.
     </p>
-    <center><vue-qr :text="qrUrl" /></center>
+    <center><vue-qr :text="qrUrl" :logo-src="logo" /></center>
   </panel>
 </template>
 
 <script>
 import VueQr from 'vue-qr'
+import logo from '../../assets/images/whatsapp.png'
 
 export default {
   components: {
@@ -20,13 +19,17 @@ export default {
 
   data () {
     return {
+      logo,
       phone: '+1-201-971-2111'
     }
   },
 
   computed: {
+    cleanPhone () {
+      return this.phone.replace(/[^0-9.]/g, '')
+    },
     qrUrl () {
-      return `whatsappUrl: 'https://wa.me/${this.phone}?text=hello`
+      return `https://wa.me/${this.cleanPhone}?text=hello`
     }
   }
 }

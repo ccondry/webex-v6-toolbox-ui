@@ -4,7 +4,7 @@
       Use
       <strong><a :href="mobileWebAppUrl" target="_blank">this URL</a></strong>
       <copy :value="mobileWebAppUrl" name="Mobile Web App URL" />
-      or the following QR code to go to the dCloud CC Mobile Web App:
+      or scan the following QR code to go to the dCloud CC Mobile Web App:
       <center><vue-qr :text="mobileWebAppUrl" :logo-src="favicon" /></center>
     </p>
   </panel>

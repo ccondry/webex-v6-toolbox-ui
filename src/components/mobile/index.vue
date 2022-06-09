@@ -1,18 +1,54 @@
 <template>
   <panel title="Mobile" aria-id="mobile">
-    <div class="panel-row">
-      <!-- mobile app -->
-      <mobile-app />
-      
-      <!-- sms -->
-      <sms />
+    <b-field label="Channel">
+      <!-- Mobile Web App -->
+      <b-radio-button
+      v-model="app"
+      native-value="app"
+      type="is-success is-light is-outlined"
+      >
+        <span>Web</span>
+      </b-radio-button>
 
-      <!-- <whatsapp /> -->
-      <whatsapp />
+      <!-- SMS -->
+      <b-radio-button
+      v-model="app"
+      native-value="sms"
+      type="is-success is-light is-outlined"
+      >
+        <span>SMS</span>
+      </b-radio-button>
 
-      <!-- <facebook /> -->
-      <facebook />
-    </div>
+      <!-- Whatsapp -->
+      <b-radio-button
+      v-model="app"
+      native-value="whatsapp"
+      type="is-success is-light is-outlined"
+      >
+        <span>Whatsapp</span>
+      </b-radio-button>
+
+      <!-- Facebook -->
+      <b-radio-button
+      v-model="app"
+      native-value="facebook"
+      type="is-success is-light is-outlined"
+      >
+        <span>Facebook</span>
+      </b-radio-button>
+    </b-field>
+
+    <!-- mobile app -->
+    <mobile-app v-show="app === 'app'" />
+    
+    <!-- sms -->
+    <sms  v-show="app === 'sms'" />
+
+    <!-- <whatsapp /> -->
+    <whatsapp  v-show="app === 'whatsapp'" />
+
+    <!-- <facebook /> -->
+    <facebook  v-show="app === 'facebook'" />
   </panel>
 </template>
 
@@ -28,6 +64,12 @@ export default {
     Sms,
     Whatsapp,
     Facebook
+  },
+
+  data () {
+    return {
+      app: 'app'
+    }
   }
 }
 </script>

@@ -1,20 +1,18 @@
 <template>
   <panel title="Facebook" aria-id="facebook">
     <p>
-      Start the Facebook demo by scanning this QR code or going to
-      <a :href="url">
-        <strong>
-          {{ url }}
-        </strong>
-      </a>
-      to 
+      Use
+      <strong><a :href="url" target="_blank">this URL</a></strong>
+      <copy :value="url" name="Facebook Demo URL" />
+      or scan the following QR code to start the Facebook demo.
     </p>
-    <center><vue-qr :text="url" /></center>
+    <center><vue-qr :text="url" :logo-src="logo" /></center>
   </panel>
 </template>
 
 <script>
 import VueQr from 'vue-qr'
+import logo from '../../assets/images/facebook.png'
 
 export default {
   components: {
@@ -23,6 +21,7 @@ export default {
 
   data () {
     return {
+      logo,
       url: 'https://www.facebook.com/Cumulus-Webex-Contact-Center-103328532318243/'
     }
   }

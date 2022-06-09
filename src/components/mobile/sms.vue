@@ -7,18 +7,17 @@
     :countries="Object.keys(phoneNumbers)"
     />
     <p>
-      Scan this QR code to send an SMS to
-      <strong>
-        {{ phone }}
-      </strong>
+      Scan the following QR code to send an SMS to
+      <strong>{{ phone }}</strong>.
     </p>
-    <center><vue-qr :text="qrUrl" /></center>
+    <center><vue-qr :text="qrUrl" :logo-src="logo" /></center>
   </panel>
 </template>
 
 <script>
 import Country from '../input/country'
 import VueQr from 'vue-qr'
+import logo from '../../assets/images/sms.png'
 
 export default {
   components: {
@@ -28,6 +27,7 @@ export default {
 
   data () {
     return {
+      logo,
       country: 'US',
       phoneNumbers: {
         UK: '+44-798-4421-429',

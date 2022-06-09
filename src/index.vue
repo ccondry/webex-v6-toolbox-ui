@@ -29,8 +29,8 @@
         <!-- Agents and Supervisors -->
         <agents v-if="isProvisioned" />
 
-        <!-- Mobile App and Mobile Web App-->
-        <mobile-app v-if="isProvisioned" />
+        <!-- Mobile Web App, SMS, Whatsapp, Facebook -->
+        <mobile v-if="isProvisioned" />
 
         <!-- Agent Desktop Layout -->
         <desktop-layout v-if="isProvisioned" />
@@ -69,7 +69,7 @@ import DemoWebsite from './components/demo-website'
 import AppFooter from './components/app-footer'
 // import Debug from './components/debug'
 import Admin from './components/admin'
-import MobileApp from './components/mobile-app'
+import Mobile from './components/mobile/index.vue'
 import LaptopDemo from './components/laptop-demo'
 import Connect from './components/connect'
 import DesktopLayout from './components/desktop-layout'
@@ -87,7 +87,7 @@ export default {
     AppFooter,
     // Debug,
     Admin,
-    MobileApp,
+    Mobile,
     LaptopDemo,
     Connect,
     DesktopLayout,

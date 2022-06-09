@@ -13,7 +13,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import VueQr from 'vue-qr'
-import favicon from '../assets/images/favicon.png'
+import favicon from '../../assets/images/favicon.png'
 
 export default {
   components: {

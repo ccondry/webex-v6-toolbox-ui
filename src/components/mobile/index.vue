@@ -1,6 +1,6 @@
 <template>
   <panel title="Mobile" aria-id="mobile">
-    <b-field label="Channel">
+    <b-field v-if="isQa" label="Channel">
       <!-- Mobile Web App -->
       <b-radio-button
       v-model="app"
@@ -42,17 +42,18 @@
     <mobile-app v-show="app === 'app'" />
     
     <!-- sms -->
-    <sms  v-show="app === 'sms'" />
+    <sms if="isQa" v-show="app === 'sms'" />
 
     <!-- <whatsapp /> -->
-    <whatsapp  v-show="app === 'whatsapp'" />
+    <whatsapp if="isQa" v-show="app === 'whatsapp'" />
 
     <!-- <facebook /> -->
-    <facebook  v-show="app === 'facebook'" />
+    <facebook if="isQa" v-show="app === 'facebook'" />
   </panel>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 import MobileApp from './app'
 import Sms from './sms'
 import Whatsapp from './whatsapp'
@@ -69,6 +70,19 @@ export default {
   data () {
     return {
       app: 'app'
+    }
+  },
+
+  computed: {
+    ...mapGetters([
+      'user'
+    ]),
+    isQa () {
+      try {
+        return this.user.groups.includes('QA')
+      } catch (e) {
+        return false
+      }
     }
   }
 }

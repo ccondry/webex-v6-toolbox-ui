@@ -35,6 +35,13 @@ const getters = {
       return {}
     }
   },
+  isQa: state => {
+    try {
+      return state.user.groups.includes('QA')
+    } catch (e) {
+      return false
+    }
+  },
   isAdminSu: (state, getters) => {
     try {
       return getters.jwtUser.suJwt

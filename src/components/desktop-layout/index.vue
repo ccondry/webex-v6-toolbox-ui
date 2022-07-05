@@ -8,21 +8,28 @@
       <div>
         <logo />
         <layout-title />
+        <layout-background  v-if="isQa"/>
       </div>
     </div>
   </panel>
 </template>
 
 <script>
+import {mapActions, mapGetters} from 'vuex'
 import Layout from './layout'
 import Logo from './logo'
 import LayoutTitle from './title'
+import LayoutBackground from './background'
 
 export default {
   components: {
     Layout,
     Logo,
-    LayoutTitle
+    LayoutTitle,
+    LayoutBackground
+  },
+  computed:{
+    ...mapGetters(["isQa"])
   }
 }
 </script>

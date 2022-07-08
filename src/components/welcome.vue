@@ -2,7 +2,7 @@
   <panel :title="`Welcome ${jwtUser.firstName}!`" aria-id="welcome">
     <p>
       Welcome to the dCloud
-      <strong>Webex Contact Center v6</strong>
+      <strong>Webex Contact Center v7</strong>
       Instant Demo Toolbox!
       <br>
       Join our Webex support space to get help, ask questions, and

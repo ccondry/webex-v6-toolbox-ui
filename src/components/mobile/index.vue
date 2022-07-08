@@ -1,6 +1,6 @@
 <template>
   <panel title="Mobile" aria-id="mobile">
-    <b-field v-if="isQa" label="Channel">
+    <b-field label="Channel">
       <!-- Mobile Web App -->
       <b-radio-button
       v-model="app"
@@ -42,13 +42,13 @@
     <mobile-app v-show="app === 'app'" />
     
     <!-- sms -->
-    <sms if="isQa" v-show="app === 'sms'" />
+    <sms v-show="app === 'sms'" />
 
     <!-- <whatsapp /> -->
-    <whatsapp if="isQa" v-show="app === 'whatsapp'" />
+    <whatsapp v-show="app === 'whatsapp'" />
 
     <!-- <facebook /> -->
-    <facebook if="isQa" v-show="app === 'facebook'" />
+    <facebook v-show="app === 'facebook'" />
   </panel>
 </template>
 

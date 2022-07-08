@@ -8,7 +8,7 @@
       <div>
         <logo />
         <layout-title />
-        <layout-background  v-if="isQa"/>
+        <layout-background  />
       </div>
     </div>
   </panel>

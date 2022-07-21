@@ -3,7 +3,7 @@
     <header class="modal-card-head">
       <!-- title -->
       <p class="modal-card-title">
-        Provision Webex CC v6 Demo
+        Provision Webex CC v7 Demo
       </p>
       <!-- close button on top-right -->
       <button

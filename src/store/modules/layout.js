@@ -126,7 +126,7 @@ const actions = {
       // create a copy of the layout
       const layoutCopy = JSON.parse(JSON.stringify(currentLayout))
       // set the logo image URL
-      layoutCopy.taskPageIllustration = response.url.url
+      layoutCopy.landingPageIllustration = response.url.url
       // update user layout
       await dispatch('updateDesktopLayout', layoutCopy)
       // dispatch('getDesktopLayout')

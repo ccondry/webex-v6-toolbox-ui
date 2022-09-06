@@ -219,7 +219,12 @@ const actions = {
       type: 'details',
       url: getters.endpoints.user,
       message: 'get user details',
-      mutation: types.SET_USER
+      mutation: types.SET_USER,
+      options: {
+        query: {
+          nocache: new Date().getTime()
+        }
+      }
     })
   },
   async saveUserDemoConfig ({dispatch, getters}, body) {

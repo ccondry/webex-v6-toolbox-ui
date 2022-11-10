@@ -4,6 +4,16 @@ Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
 
+# 2022.11.10
+
+### Fixes
+* **Site:** Update "v6" strings to "v7". Fix vertical display not updating
+properly.
+
+### Features
+* **Agents:** Add JDS customer viewer/editor panel to agents for QA.
+
+
 # 2022.6.9
 
 ### Features

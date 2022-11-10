@@ -24,3 +24,6 @@ export const SET_DESKTOP_LAYOUT = 'SET_DESKTOP_LAYOUT'
 export const SET_GLOBAL_DESKTOP_LAYOUT = 'SET_GLOBAL_DESKTOP_LAYOUT'
 // dcloud demo base configuration
 export const SET_DEMO_INFO = 'SET_DEMO_INFO'
+// JDS identity
+export const SET_JDS_IDENTITY = 'SET_JDS_IDENTITY'
+

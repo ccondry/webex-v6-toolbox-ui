@@ -1,6 +1,7 @@
 <template>
   <panel title="User Accounts" aria-id="agents">
     <div style="display: flex; flex-wrap: wrap;">
+      <customer v-if="isAdmin || isQa" />
       <agent :agent="sandra" />
       <agent :agent="rick" />
       <agent :agent="admin" />
@@ -12,10 +13,12 @@
 <script>
 import {mapGetters} from 'vuex'
 import Agent from './agent'
+import Customer from './jds-identity'
 
 export default {
   components: {
-    Agent
+    Agent,
+    Customer
   },
 
   data () {
@@ -27,6 +30,10 @@ export default {
 
   computed: {
     ...mapGetters([
+      'loading',
+      'working',
+      'isAdmin',
+      'isQa',
       'jwtUser'
     ]),
     sandra () {

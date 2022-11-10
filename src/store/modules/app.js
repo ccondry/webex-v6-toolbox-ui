@@ -6,6 +6,7 @@ import {version} from '../../../package.json'
 const state = {
   loading: {
     app: {},
+    jdsIdentity: {},
     user: {},
     users: {},
     ldap: {},
@@ -14,6 +15,7 @@ const state = {
   },
   working: {
     app: {},
+    jdsIdentity: {},
     user: {},
     users: {},
     ldap: {},
@@ -30,7 +32,7 @@ const getters = {
   loading: state => state.loading,
   working: state => state.working,
   uiVersion: state => state.uiVersion,
-  authApiVersion: state => state.authApiVersion
+  authApiVersion: state => state.authApiVersion,
 }
 
 const mutations = {

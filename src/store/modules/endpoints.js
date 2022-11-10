@@ -20,6 +20,9 @@ const getters = {
     }
 
     return {
+      jds: {
+        identity: authUrlBase + '/webex-v6/jds/identity',
+      },
       webex: authUrlBase + '/resource/joinWebexV6SupportRoom',
       authVersion: authUrlBase + '/version',
       logout: authUrlBase + '/logout',

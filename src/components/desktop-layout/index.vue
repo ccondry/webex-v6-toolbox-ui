@@ -15,7 +15,6 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
 import Layout from './layout'
 import Logo from './logo'
 import LayoutTitle from './title'
@@ -27,9 +26,6 @@ export default {
     Logo,
     LayoutTitle,
     LayoutBackground
-  },
-  computed:{
-    ...mapGetters(["isQa"])
   }
 }
 </script>

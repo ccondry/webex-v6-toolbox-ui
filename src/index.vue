@@ -165,6 +165,8 @@ export default {
     this.getVerticals()
     // get the dCloud session ID and datacenter
     this.getInstance()
+    // get the JDS identity info for this user
+    this.getJdsIdentity()
   },
 
   methods: {
@@ -173,6 +175,7 @@ export default {
       'getAuthApiVersion',
       'login',
       'getDemoInfo',
+      'getJdsIdentity',
       'getVerticals',
       'getUser',
       'getInstance'

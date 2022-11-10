@@ -75,15 +75,9 @@ export default {
 
   computed: {
     ...mapGetters([
+      'isQa',
       'user'
-    ]),
-    isQa () {
-      try {
-        return this.user.groups.includes('QA')
-      } catch (e) {
-        return false
-      }
-    }
+    ])
   }
 }
 </script>

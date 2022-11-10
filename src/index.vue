@@ -105,6 +105,7 @@ export default {
       'isLoggedIn',
       'isAdmin',
       'isAdminSu',
+      'isQa',
       'jwtUser',
       'loading',
       'working',
@@ -165,8 +166,10 @@ export default {
     this.getVerticals()
     // get the dCloud session ID and datacenter
     this.getInstance()
-    // get the JDS identity info for this user
-    this.getJdsIdentity()
+    if (this.isAdmin || this.isQa) {
+      // get the JDS identity info for this user
+      this.getJdsIdentity()
+    }
   },
 
   methods: {

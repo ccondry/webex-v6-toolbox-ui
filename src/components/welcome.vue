@@ -19,6 +19,11 @@
         {{ isWorking ? 'Working...' : 'Join Support Space' }}
       </b-button>
     </b-field>
+    <p>IMPORTANT: Please read the demo guide 
+      <a href="https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v7/b_webex_contact_center_v7.html?dc=rtp" target="_blank">here</a>  
+      before to post any question on the support room.
+
+    </p>
   </panel>
 </template>
 

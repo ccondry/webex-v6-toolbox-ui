@@ -4,6 +4,15 @@ Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
 
+# 2022.11.29
+
+### Fixes
+* **JDS:** Fix JDS panel not loading for QA users.
+
+### Changes
+* **Welcome:** Add link to the demo guide.
+
+
 # 2022.11.10-1
 
 ### Fixes

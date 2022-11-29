@@ -53,7 +53,6 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 import MobileApp from './app'
 import Sms from './sms'
 import Whatsapp from './whatsapp'
@@ -71,13 +70,6 @@ export default {
     return {
       app: 'app'
     }
-  },
-
-  computed: {
-    ...mapGetters([
-      'isQa',
-      'user'
-    ])
   }
 }
 </script>

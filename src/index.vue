@@ -128,6 +128,12 @@ export default {
     isLoggedIn (val, oldVal) {
       if (val && !oldVal) {
         // user just logged in
+        if (this.isAdmin || this.isQa) {
+          // get demo verticals list
+          this.getVerticals()
+          // get the JDS identity info for this user
+          this.getJdsIdentity()
+        }
       } else if (!val && oldVal) {
         // user just logged out. make them log in again.
         this.login()
@@ -162,13 +168,13 @@ export default {
     this.getAuthApiVersion()
     // get the demo base configuration for webex-v6
     this.getDemoInfo()
-    // get demo verticals list
-    this.getVerticals()
     // get the dCloud session ID and datacenter
     this.getInstance()
-    if (this.isAdmin || this.isQa) {
-      // get the JDS identity info for this user
-      this.getJdsIdentity()
+    if (this.isLoggedIn) {
+      if (this.isAdmin || this.isQa) {
+        // get the JDS identity info for this user
+        this.getJdsIdentity()
+      }
     }
   },
 

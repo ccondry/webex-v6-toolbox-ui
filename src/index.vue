@@ -128,9 +128,9 @@ export default {
     isLoggedIn (val, oldVal) {
       if (val && !oldVal) {
         // user just logged in
+        // get demo verticals list
+        this.getVerticals()
         if (this.isAdmin || this.isQa) {
-          // get demo verticals list
-          this.getVerticals()
           // get the JDS identity info for this user
           this.getJdsIdentity()
         }

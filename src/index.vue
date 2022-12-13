@@ -111,7 +111,8 @@ export default {
       'working',
       'isProvisioned',
       'isProvisionStarted',
-      'isProduction'
+      'isProduction',
+      'user'
     ]),
     isLoading () {
       return this.loading.app.environment ||
@@ -125,6 +126,13 @@ export default {
   },
 
   watch: {
+    user () {
+      // user data loaded
+      if (this.isAdmin || this.isQa) {
+        // get the JDS identity info for this user
+        this.getJdsIdentity()
+      }
+    },
     isLoggedIn (val, oldVal) {
       if (val && !oldVal) {
         // user just logged in

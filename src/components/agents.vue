@@ -1,7 +1,7 @@
 <template>
   <panel title="User Accounts" aria-id="agents">
     <div style="display: flex; flex-wrap: wrap;">
-      <customer v-if="isAdmin || isQa" />
+     <!---- <customer v-if="isAdmin || isQa" /> -->
       <agent :agent="sandra" />
       <agent :agent="rick" />
       <agent :agent="admin" />

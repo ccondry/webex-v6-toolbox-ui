@@ -2,7 +2,7 @@
   <panel :title="`Welcome ${jwtUser.firstName}!`" aria-id="welcome">
     <p>
       Welcome to the dCloud
-      <strong>Webex Contact Center Version 7</strong>
+      <strong>Webex Contact Center Version 8</strong>
       Instant Demo Toolbox!
       <br>
       Join our Webex support space to get help, ask questions, and
@@ -20,7 +20,7 @@
       </b-button>
     </b-field>
     <p>IMPORTANT: Please read the demo guide:
-      <a href="https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v7/b_webex_contact_center_v7.html?dc=rtp" target="_blank">here</a>  
+      <a href="https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp" target="_blank">here</a>  
       before to post any question on the support room.
 
     </p>

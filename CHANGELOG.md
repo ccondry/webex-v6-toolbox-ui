@@ -3,6 +3,11 @@
 Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
+# 2023.01.20
+### Changes
+
+* **Site** Changed everything from version 7 to version 8
+* **Mobile** I've changed Facebook URL with the new profile
 
 # 2022.12.13
 

@@ -13,12 +13,12 @@
 <script>
 import {mapGetters} from 'vuex'
 import Agent from './agent'
-import Customer from './jds-identity'
+// import Customer from './jds-identity'
 
 export default {
   components: {
     Agent,
-    Customer
+    // Customer
   },
 
   data () {

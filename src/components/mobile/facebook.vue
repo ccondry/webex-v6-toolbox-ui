@@ -22,7 +22,7 @@ export default {
   data () {
     return {
       logo,
-      url: 'https://www.facebook.com/profile.php?id=100088722490738'
+      url: 'https://www.facebook.com/profile.php?id=100088408906485'
     }
   }
 }

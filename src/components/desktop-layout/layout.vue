@@ -14,7 +14,7 @@
         to change your agent desktop layout.
       </p>
       <p>
-        You can also download the Global Layout <a href="https://mm-static.cxdemo.net/wxcc/global.json" download>here</a>  
+        You can also download the Global Layout <a href="https://mm-static.cxdemo.net/wxcc/global_layout8.zip" download>Here</a>  
       </p>
 
       <!-- buttons -->

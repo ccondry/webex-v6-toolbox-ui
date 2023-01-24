@@ -13,6 +13,9 @@
         Download your existing desktop layout JSON, modify it, then upload it
         to change your agent desktop layout.
       </p>
+      <p>
+        You can also download the Global Layout <a href="https://mm-static.cxdemo.net/wxcc/global.json" download>here</a>  
+      </p>
 
       <!-- buttons -->
       <div style="position: relative;">

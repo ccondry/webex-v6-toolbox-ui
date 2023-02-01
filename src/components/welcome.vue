@@ -19,11 +19,14 @@
         {{ isWorking ? 'Working...' : 'Join Support Space' }}
       </b-button>
     </b-field>
-    <p>IMPORTANT: Please read the demo guide:
-      <a href="https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp" target="_blank">here</a>  
+   
+    <b-message type="is-success" has-icon icon="information">
+      Please read the 
+      <a href="https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp" target="_blank">
+        <strong>Demo Guide</strong>
+      </a>
       before to post any question on the support room.
-
-    </p>
+    </b-message> 
   </panel>
 </template>
 

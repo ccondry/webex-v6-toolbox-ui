@@ -1,32 +1,36 @@
 <template>
   <panel :title="`Welcome ${jwtUser.firstName}!`" aria-id="welcome">
-    <p>
-      Welcome to the dCloud
-      <strong>Webex Contact Center Version 8</strong>
-      Instant Demo Toolbox!
-      <br>
-      Join our Webex support space to get help, ask questions, and
-      suggest new features:
-    </p>
-    <b-field>
+    <div style="display: flex; justify-content: space-around;">
+      <p>
+        Welcome to the dCloud <strong>Webex Contact Center Version 8</strong> Instant Demo Toolbox!
+      </p>
+    </div>
+    <br />
+    <div style="display: flex; justify-content: space-around;">
+      <p>
+        Click <strong>Join Webex Support Room</strong> to get help, ask questions, and suggest new features.
+      </p>
+    </div>
+    <br />
+    <div class="buttons" style="justify-content: space-around;">
       <b-button
       type="is-primary"
       rounded
-      expanded
       :disabled="isWorking"
       @click="clickJoinSupportRoom"
       >
-        {{ isWorking ? 'Working...' : 'Join Support Space' }}
+        {{ isWorking ? 'Working...' : 'Join Webex Support Room' }}
       </b-button>
-    </b-field>
-   
+    </div>
+
     <b-message type="is-success" has-icon icon="information">
       Please read the 
-      <a href="https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp" target="_blank">
+      <a :href="demoGuideUrl" target="_blank">
         <strong>Demo Guide</strong>
       </a>
       before to post any question on the support room.
-    </b-message> 
+    </b-message>
+   
   </panel>
 </template>
 
@@ -41,6 +45,13 @@ export default {
     ]),
     isWorking () {
       return this.working.webex.joinSupportRoom
+    }
+  },
+
+  data () {
+    return {
+      demoGuideUrl: 'https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp',
+      labGuideUrl: ''
     }
   },
 

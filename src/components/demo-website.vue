@@ -1,9 +1,15 @@
 <template>
-  <panel title="Demo Website" aria-id="demo-website">
-    <p>
+  <panel title="Demo Branding" aria-id="demo-website">
+    <div style="display: flex; justify-content: space-around;">
+      <p>
+        Choose the branding you want to use.
+      </p>
+    </div>
+    <br />
+    <!-- <p>
       Choose the vertical you want to use, then click Go to Demo Website to
       show the customer side of the demo.
-    </p>
+    </p> -->
     <div style="display: flex; justify-content: space-around;">
       <b-field style="position: relative;">
         <b-loading :active="isLoading || isWorking" :is-full-page="false" />
@@ -38,26 +44,49 @@
 
     <br>
 
-    <p>
-      Note: You can create and configure your own vertical on the
-      <a href="/branding" target="_blank">
-        <strong>Demo Branding Toolbox</strong>
-      </a>.
-    </p>
+    <div style="display: flex; justify-content: space-around;">
+      <p>
+        Click <strong>Go to Demo Website</strong> to show the customer side of the demo.
+      </p>
+    </div>
+    <br />
 
     <b-field v-if="!isLocked">
-      <b-button
-      :disabled="working.app.user"
-      type="is-success"
-      rounded
-      expanded
-      tag="a"
-      :href="brandDemoLink"
-      target="_blank"
-      >
-        Go to Demo Website
-      </b-button>
+      <div class="buttons" style="justify-content: space-around;">
+        <b-button
+        :disabled="working.app.user"
+        type="is-success"
+        rounded
+        tag="a"
+        :href="brandDemoLink"
+        target="_blank"
+        >
+          Go to Demo Website
+        </b-button>
+      </div>
     </b-field>
+
+    <b-message type="is-success" has-icon icon="information">
+      Before you use the demo, make sure that your
+      <a href="/customer" target="_blank">
+        <strong>Customer Profile</strong>
+      </a>
+      is updated with your phone numbers and email.
+      <br />
+      <br />
+      You can create and configure your own branding on the
+      <a href="/branding" target="_blank">
+        <strong>Demo Branding Editor</strong>
+      </a>.
+      <br />
+      <br />
+      Please read the 
+      <a :href="BrandingGuideUrl" target="_blank">
+        <strong>Branding Demo Guide</strong>
+      </a>
+      to learn how to customize your demo.
+    </b-message>
+
   </panel>
 </template>
 
@@ -71,6 +100,7 @@ export default {
       brandFilter: 'mine',
       vertical: '',
       multichannel: 'ece',
+      BrandingGuideUrl: 'https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/contact-center/common/out_brand_demo_common/b_brand_demo_common.html?dc=rtp',
       showMore: false
     }
   },

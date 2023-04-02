@@ -2,9 +2,8 @@
   <panel title="Provision Webex Contact Center v8" aria-id="provision">
     <p v-if="isLocked">
       <!-- provisioning is not enabled for this instance -->
-      Provisioning is disabled for this demo instance. Please try using
-      another dCloud datacenter or a newer version of this demo (if one is
-      available).
+      Provisioning is temporary disabled for this demo. In case of
+      an urgent demo, please type a message into the support space.
     </p>
     <!-- was there a provision error? -->
     <b-message v-if="!isLocked && userDemoConfig.provision === 'error'"

@@ -18,7 +18,7 @@
     class="modal-card-body"
     >
       <p>
-        Please enter the VPN password and Webex Connectemail address you wish
+        Please enter the VPN password and Webex Connect email address you wish
         to use. Do not re-use your Cisco account password.
       </p>
       <b-field label="VPN Password">

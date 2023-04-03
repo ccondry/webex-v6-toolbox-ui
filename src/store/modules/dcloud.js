@@ -67,9 +67,9 @@ const getters = {
     return state.datacenterNames[getters.datacenter]
   },
   // is this demo locked to disable provisioning?
-  isLocked: (state, getters) => {
-    // return false
-    return getters.demoInfo.locked === true
+  isLocked: () => {
+    return true
+    // return getters.demoInfo.locked === true
   },
   // which vertical the demo website is set to 
   verticals: state => state.verticals,

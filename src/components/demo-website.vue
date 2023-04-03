@@ -51,7 +51,7 @@
     </div>
     <br />
 
-    <b-field v-if="!isLocked">
+    <b-field>
       <div class="buttons" style="justify-content: space-around;">
         <b-button
         :disabled="working.app.user"

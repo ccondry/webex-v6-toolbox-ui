@@ -68,7 +68,7 @@ const getters = {
   },
   // is this demo locked to disable provisioning?
   isLocked: () => {
-    return true
+    return false
     // return getters.demoInfo.locked === true
   },
   // which vertical the demo website is set to 

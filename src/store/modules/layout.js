@@ -92,7 +92,9 @@ const actions = {
       // create a copy of the layout
       const layoutCopy = JSON.parse(JSON.stringify(currentLayout))
       // set the logo image URL
-      layoutCopy.logo = response.url.url
+      layoutCopy.agent.logo = response.url.url
+      layoutCopy.supervisor.logo = response.url.url
+      layoutCopy.supervisorAgent.logo = response.url.url
       // update user layout
       await dispatch('updateDesktopLayout', layoutCopy)
       // dispatch('getDesktopLayout')
@@ -126,7 +128,9 @@ const actions = {
       // create a copy of the layout
       const layoutCopy = JSON.parse(JSON.stringify(currentLayout))
       // set the logo image URL
-      layoutCopy.taskPageIllustration = response.url.url
+      layoutCopy.agent.taskPageIllustration = response.url.url
+      layoutCopy.supervisor.taskPageIllustration = response.url.url
+      layoutCopy.supervisorAgent.taskPageIllustration = response.url.url
       // update user layout
       await dispatch('updateDesktopLayout', layoutCopy)
       // dispatch('getDesktopLayout')

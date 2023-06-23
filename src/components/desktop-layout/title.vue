@@ -75,7 +75,7 @@ export default {
 
   mounted () {
     try {
-      this.title = this.currentLayout.appTitle
+      this.title = this.currentLayout.agent.appTitle
     } catch (e) {
       // continue
     }
@@ -96,7 +96,9 @@ export default {
           // create a copy of the layout
           const layoutCopy = JSON.parse(JSON.stringify(this.currentLayout))
           // set the app title
-          layoutCopy.appTitle = this.title
+          layoutCopy.agent.appTitle = this.title
+          layoutCopy.supervisor.appTitle = this.title
+          layoutCopy.supervisorAgent.appTitle = this.title
           // update user layout
           this.updateDesktopLayout(layoutCopy)
         }

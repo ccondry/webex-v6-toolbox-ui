@@ -68,7 +68,7 @@ export default {
           'dcloudwxcc+2@gmail.com',
           'dcloudwxcc+3@gmail.com'
         ],
-        password: 'C1sco12345!',
+        password: 'C1sco12345!!',
         name: 'Administrator',
         role: 'Administrator',
         description: 'Administrator'

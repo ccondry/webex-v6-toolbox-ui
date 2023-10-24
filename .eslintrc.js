@@ -40,6 +40,6 @@ module.exports = {
         'allowFirstLine': true
       }
     }],
-    'vue/no-unused-components': false
+    'vue/no-unused-components': 1
   }
 }

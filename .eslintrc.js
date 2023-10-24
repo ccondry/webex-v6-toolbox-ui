@@ -39,6 +39,7 @@ module.exports = {
         'max': 1,
         'allowFirstLine': true
       }
-    }]
+    }],
+    'vue/no-unused-components': false
   }
 }

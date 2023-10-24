@@ -20,7 +20,8 @@ const state = {
     users: {},
     ldap: {},
     dcloud: {},
-    webex: {}
+    webex: {},
+    demo: {}
   },
   isProduction: process.env.NODE_ENV === 'production',
   uiVersion: version,

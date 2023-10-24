@@ -12,6 +12,7 @@
 
     <!-- US -->
     <b-radio-button
+    v-if="countries.includes('us')"
     v-model="country"
     native-value="US"
     type="is-success is-light is-outlined"
@@ -21,6 +22,7 @@
 
     <!-- UK -->
     <b-radio-button
+    v-if="countries.includes('uk')"
     v-model="country"
     native-value="UK"
     type="is-success is-light is-outlined"
@@ -30,11 +32,12 @@
 
     <!-- Singapore -->
     <b-radio-button
+    v-if="countries.includes('sng')"
     v-model="country"
-    native-value="Singapore"
+    native-value="SNG"
     type="is-success is-light is-outlined"
     >
-      <span>Singapore</span>
+      <span>SNG</span>
     </b-radio-button>
   </b-field>
 </template>
@@ -48,8 +51,12 @@ export default {
     },
     tooltip: {
       type: String,
-      default: `Select the US, UK, or Singapore SMS gateway`
-    }
+      default: `Select US, UK or SNG, depending where you want SMS to be sent to`
+    },
+    countries: {
+      type: Array,
+      default: () => ['us', 'uk', 'sng']
+    },
   },
 
   computed: {

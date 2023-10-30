@@ -20,18 +20,3 @@ export default {
   },
 }
 </script>
-
-<style>
-#demo-panels {
-  display: flex;
-  flex-wrap: wrap;
-  /* justify-content: space-around; */
-  justify-content: flex-start;
-}
-
-#demo-panels>div {
-  width: 28.7rem;
-  /* max-width: 32rem; */
-  margin: 0.3rem;
-}
-</style>

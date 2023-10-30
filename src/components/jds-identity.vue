@@ -34,7 +34,6 @@
         v-if="hasPhone"
         label="Phone Numbers"
         horizontal
-       
         >
           <b-taginput
           v-model="phones.values"

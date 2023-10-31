@@ -1,5 +1,6 @@
 <template>
-  <panel title="One Contact" aria-id="one-contact">
+  <panel title="Send One Outbund Contact" aria-id="one-contact">
+    <b-loading :active="isWorking" :is-full-page="false" />
     <div style="padding: 1rem;">
       <p>
         Fill out this form and click Send to send this one contact to the
@@ -34,7 +35,7 @@
         <!-- status -->
         <b-field label="Status">
           <div style="padding-left: 1rem;">
-            <p v-if="working.outbound.upload">
+            <p v-if="isWorking">
               Working...
             </p>
             <p v-else-if="!outboundSendOneResponse">
@@ -91,6 +92,9 @@ export default {
       'timezones',
       'working',
     ]),
+    isWorking () {
+      return this.working.outbound.upload
+    },
     lastResult () {
       return outboundSendOneResponse.Result
     },
@@ -116,7 +120,7 @@ export default {
         this.form.lastName &&
         this.form.phone &&
         this.form.timezone &&
-        !this.working.outbound.upload
+        !this.isWorking
     },
   },
 
@@ -133,7 +137,6 @@ export default {
   methods: {
     ...mapActions([
       'sendOneOutboundContact',
-      'uploadOutboundContacts',
     ]),
     clickClearForm () {
       this.form.firstName = ''

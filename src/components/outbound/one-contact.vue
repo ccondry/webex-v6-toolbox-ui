@@ -1,0 +1,168 @@
+<template>
+  <panel title="One Contact" aria-id="one-contact">
+    <div style="padding: 1rem;">
+      <p>
+        Fill out this form and click Send to send this one contact to the
+        outbound dialer list.
+      </p>
+      <form>
+        <b-field label="First Name">
+          <b-input v-model="form.firstName" />
+        </b-field>
+
+        <b-field label="Last Name">
+          <b-input v-model="form.lastName" />
+        </b-field>
+
+        <b-field label="Phone Number">
+          <b-input v-model="form.phone" />
+        </b-field>
+
+        <b-field label="Timezone">
+          <b-select v-model="form.timezone">
+            <option disabled value="">Choose a Timezone</option>
+            <option
+            v-for="option of timezoneOptions"
+            :key="option.value"
+            :value="option.value"
+            >
+              {{ option.label }}
+            </option>
+          </b-select>
+        </b-field>
+
+        <!-- status -->
+        <b-field label="Status">
+          <div style="padding-left: 1rem;">
+            <p v-if="working.outbound.upload">
+              Working...
+            </p>
+            <p v-else-if="!outboundSendOneResponse">
+              Ready
+            </p>
+            <p v-else>
+              {{ outboundSendOneResponse.Contact }} - {{ outboundSendOneResponse.Result ? 'Success' : 'Error - ' + outboundSendOneResponse.ErrorDescription }}
+            </p>
+          </div>
+        </b-field>
+        
+        <div class="buttons" style="display: flex; justify-content: flex-end;">
+          <b-button
+          rounded
+          type="is-primary"
+          @click="clickClearForm"
+          >
+            Clear Form
+          </b-button>
+
+          <b-button
+          rounded
+          type="is-success"
+          @click="clickSend"
+          :disabled="!sendIsEnabled"
+          >
+            {{ working.outbound.upload ? 'Working...' : 'Send' }}
+          </b-button>
+        </div>
+      </form>
+    </div>
+  </panel>
+</template>
+
+<script>
+import { mapActions, mapGetters } from 'vuex'
+
+export default {
+  data () {
+    return {
+      form: {
+        firstName: '',
+        lastName: '',
+        phone: '',
+        timezone: ''
+      },
+    }
+  },
+
+  computed: {
+    ...mapGetters([
+      'jdsIdentity',
+      'outboundSendOneResponse',
+      'timezones',
+      'working',
+    ]),
+    lastResult () {
+      return outboundSendOneResponse.Result
+    },
+    timezoneOptions () {
+      return this.timezones.map(v => ({
+        value: v.name,
+        label: v.name
+      }))
+    },
+    smsPhone () {
+      const phones = {
+        US: '+1-201-971-2111',
+        UK: '+44-7984-421429',
+        SNG: '+65-82400537'
+      }
+      return phones[this.form.country] || '' 
+    },
+    smsQr () {
+      return `SMSTO:${this.smsPhone}:apptdemo`
+    },
+    sendIsEnabled () {
+      return this.form.firstName &&
+        this.form.lastName &&
+        this.form.phone &&
+        this.form.timezone &&
+        !this.working.outbound.upload
+    },
+  },
+
+  mounted () {
+    this.updateForm()
+  },
+
+  watch: {
+    jdsIdentity () {
+      this.updateForm()
+    }
+  },
+
+  methods: {
+    ...mapActions([
+      'sendOneOutboundContact',
+      'uploadOutboundContacts',
+    ]),
+    clickClearForm () {
+      this.form.firstName = ''
+      this.form.lastName = ''
+      this.form.phone = ''
+    },
+    updateForm () {
+      // set timezone to user browser timezone
+      const ianaTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      console.log('ianaTimezone', ianaTimezone)
+      this.form.timezone = this.timezones.find(v => v.id === ianaTimezone).name
+      if (this.jdsIdentity) {
+        // set first name and last name to user's JDS customer name
+        this.form.firstName = this.jdsIdentity.firstName
+        this.form.lastName = this.jdsIdentity.lastName
+        try {
+          this.form.phone = this.getIdentity('phone').values[0]
+        } catch (e) {
+          // continue without phone
+        }
+      }
+    },
+    clickSend () {
+      console.log('send one contact to outbound campaign:', this.form)
+      this.sendOneOutboundContact(this.form)
+    },
+    getIdentity (type) {
+      return this.jdsIdentity.identities.find(v => v.type === type)
+    },
+  },
+}
+</script>

@@ -8,6 +8,7 @@ import user from './user'
 import webex from './webex'
 import layout from './layout'
 import fetch from './fetch'
+import outbound from './outbound'
 
 export default {
   agents,
@@ -19,5 +20,6 @@ export default {
   user,
   webex,
   layout,
-  fetch
+  fetch,
+  outbound,
 }

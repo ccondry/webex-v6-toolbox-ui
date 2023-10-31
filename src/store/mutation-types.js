@@ -27,3 +27,5 @@ export const SET_DEMO_INFO = 'SET_DEMO_INFO'
 // JDS identity
 export const SET_JDS_IDENTITY = 'SET_JDS_IDENTITY'
 
+// outbound
+export const SET_OUTBOUND_SEND_ONE_RESPONSE = 'SET_OUTBOUND_SEND_ONE_RESPONSE'

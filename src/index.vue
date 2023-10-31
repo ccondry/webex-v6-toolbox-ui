@@ -35,6 +35,9 @@
         <!-- Demos -->
         <demos v-if="isProvisioned && (isAdmin || isAdminSu)" />
 
+        <!-- Outbound -->
+        <outbound v-if="isProvisioned && (isAdmin || isAdminSu)" />
+
         <!-- Agent Desktop Layout -->
         <desktop-layout v-if="isProvisioned" />
 
@@ -68,6 +71,7 @@ import Provision from './components/provision'
 import ProvisionProgress from './components/provision-progress'
 import Agents from './components/agents'
 import Demos from './components/demos'
+import Outbound from './components/outbound'
 import DemoWebsite from './components/demo-website'
 // import Reprovision from './components/reprovision'
 import AppFooter from './components/app-footer'
@@ -95,6 +99,7 @@ export default {
     Mobile,
     LaptopDemo,
     Connect,
+    Outbound,
     DesktopLayout,
     WebexConnect
   },

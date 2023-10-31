@@ -11,7 +11,8 @@ const state = {
     users: {},
     ldap: {},
     dcloud: {},
-    webex: {}
+    webex: {},
+    outbound: {},
   },
   working: {
     app: {},
@@ -21,7 +22,8 @@ const state = {
     ldap: {},
     dcloud: {},
     webex: {},
-    demo: {}
+    demo: {},
+    outbound: {},
   },
   isProduction: process.env.NODE_ENV === 'production',
   uiVersion: version,

@@ -3,7 +3,7 @@
     <div style="display: flex; justify-content: space-around; width: 100%;">
       <div id="demo-panels">
         <one-contact />
-        <!-- <multiple-contacts /> -->
+        <multiple-contacts />
       </div>
     </div>
   </panel>
@@ -11,12 +11,12 @@
 
 <script>
 import OneContact from './one-contact.vue'
-// import MultipleContacts from './multiple-contacts.vue'
+import MultipleContacts from './multiple-contacts.vue'
 
 export default {
   components: {
     OneContact,
-    // MultipleContacts,
+    MultipleContacts,
   },
 }
 </script>

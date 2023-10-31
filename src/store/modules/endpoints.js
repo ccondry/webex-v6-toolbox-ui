@@ -40,6 +40,7 @@ const getters = {
       imiResend: authUrlBase + '/webex-v6/imi-resend',
       imiChangeEmail: authUrlBase + '/webex-v6/imi-change-email',
       outboundContacts: authUrlBase + '/webex-v6/outbound/contacts',
+      outboundProvision: authUrlBase + '/webex-v6/outbound/provision',
     }
   },
   defaultRestOptions: (state, getters) => {

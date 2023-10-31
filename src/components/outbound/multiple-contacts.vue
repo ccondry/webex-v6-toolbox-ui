@@ -168,6 +168,7 @@ export default {
       if (!this.isValid.valid) {
         return this.isValid.message
       }
+      return null
     },
     isValid () {
       if (!Array.isArray(this.csvAsJson)) {

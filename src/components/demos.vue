@@ -1,7 +1,7 @@
 <template>
   <panel title="Demos" aria-id="demos">
     <div style="display: flex; justify-content: space-around; width: 100%;">
-      <div id="demo-panels">
+      <div class="demo-panels">
         <appointment-demo />
         <call-deflection-demo />
       </div>

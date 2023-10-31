@@ -19,10 +19,14 @@ const state = {
     'SNG': 'vpn.cc.dc-02.com',
     'LON': 'vpn.cc.dc-03.com',
     'SJC': 'vpn.cc.dc-05.com'
-  }
+  },
+  vertical: null
 }
 
 const mutations = {
+  [types.SET_VERTICAL_DETAILS] (state, data) {
+    state.vertical = data
+  },
   [types.SET_VERTICALS] (state, data) {
     state.verticals = data
   },
@@ -106,7 +110,8 @@ const getters = {
     } catch (e) {
       return ''
     }
-  }
+  },
+  vertical: state => state.vertical
 }
 
 const actions = {
@@ -159,6 +164,17 @@ const actions = {
       message: 'get dCloud session/instance information'
     })
   },
+  async loadVertical ({getters, dispatch}) {
+    // get full vertical details
+    await dispatch('fetch', {
+      group: 'dcloud',
+      type: 'vertical',
+      message: 'get vertical details',
+      url: getters.endpoints.vertical + '/' + getters.userDemoConfig.vertical,
+      mutation: types.SET_VERTICAL_DETAILS,
+      showNotification: false
+    })
+  }
 }
 
 export default {

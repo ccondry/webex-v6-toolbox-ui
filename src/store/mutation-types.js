@@ -15,6 +15,8 @@ export const SET_LINKS = 'SET_LINKS'
 export const SET_USER = 'SET_USER'
 // demo verticals list
 export const SET_VERTICALS = 'SET_VERTICALS'
+// full vertical details for current vertical ID
+export const SET_VERTICAL_DETAILS = 'SET_VERTICAL_DETAILS'
 // dcloud session ID and datacenter
 export const SET_INSTANCE = 'SET_DCLOUD_SESSION'
 

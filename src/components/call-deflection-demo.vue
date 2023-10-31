@@ -99,15 +99,11 @@ export default {
 
   computed: {
     ...mapGetters([
-      'userDemoConfig'
+      'userDemoConfig',
+      'vertical'
     ]),
-    vertical () {
-        return this.userDemoConfig.vertical
-    },
     requestBrandBuilding () {
       const defaultMessage = 'Cumulus Healthcare store'
-      // disable this line and enable the below lines to use vertical string 
-      // return defaultMessage
 
       try {
         const verticalMessage = this.vertical.webexconnect.callDeflection.brandBuilding
@@ -118,8 +114,6 @@ export default {
     },
     requestCallReason () {
       const defaultMessage = 'cleaning services'
-      // disable this line and enable the below lines to use vertical string 
-      // return defaultMessage
 
       try {
         const verticalMessage = this.vertical.webexconnect.callDeflection.callReason

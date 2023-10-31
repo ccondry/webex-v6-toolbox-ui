@@ -213,8 +213,8 @@ const actions = {
       }
     })
   },
-  getUser ({dispatch, getters}) {
-    dispatch('fetch', {
+  async getUser ({dispatch, getters}) {
+    await dispatch('fetch', {
       group: 'user',
       type: 'details',
       url: getters.endpoints.user,
@@ -226,6 +226,9 @@ const actions = {
         }
       }
     })
+
+    // get full vertical details
+    await dispatch('loadVertical')
   },
   async saveUserDemoConfig ({dispatch, getters}, body) {
     const response = await dispatch('fetch', {

@@ -11,7 +11,7 @@ import moment from 'moment'
 export default {
   props: {
     value: {
-      type: Number,
+      type: [Number, String, Date],
       default () {
         return new Date().getTime()
       }

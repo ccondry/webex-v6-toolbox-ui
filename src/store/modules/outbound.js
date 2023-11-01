@@ -4,7 +4,7 @@ import * as types from '../mutation-types.js'
 const state = {
   timezones,
   outboundSendOneResponse: null,
-  outboundUploadResponse: null,
+  outboundUploadResponse: [],
   outboundProvisionStatus: null,
 }
 
@@ -28,6 +28,9 @@ const mutations = {
 }
 
 const actions = {
+  async clearOutboundUploadResponse ({commit}) {
+    commit(types.SET_OUTBOUND_UPLOAD_RESPONSE, [])
+  },
   async sendOneOutboundContact ({dispatch, getters}, body) {
     return dispatch('fetch', {
       group: 'outbound',

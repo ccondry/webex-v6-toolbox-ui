@@ -19,65 +19,106 @@
       </b-upload>
     </b-field>
 
-    <b-table
-    v-if="Array.isArray(csvAsJson) && csvAsJson.length > 0"
-    :data="csvAsJson"
-    :paginated="Array.isArray(csvAsJson) && csvAsJson.length > 5"
-    :per-page="6"
-    :pagination-simple="true"
-    >
-      <!-- # -->
-      <b-table-column
-      label="#"
-      field="index"
-      v-slot="props"
+    <!-- upload contacts table -->
+    <div v-show="csvAsJson.length > 0">
+      <h4 style="margin-bottom: 0;">
+        Upload Contacts:
+      </h4>
+      <b-table
+      id="outbound-upload"
+      :data="csvAsJson"
+      :paginated="csvAsJson.length > 5"
+      :per-page="6"
+      :pagination-simple="true"
       >
-        {{ props.index + 1 }}
-      </b-table-column>
+        <!-- # -->
+        <b-table-column
+        label="#"
+        field="index"
+        v-slot="props"
+        >
+          {{ props.index + 1 }}
+        </b-table-column>
 
-      <!-- first name -->
-      <b-table-column
-      label="First Name"
-      field="firstName"
-      v-slot="props"
-      >
-        {{ props.row.firstName }}
-      </b-table-column>
+        <!-- first name -->
+        <b-table-column
+        label="First Name"
+        field="firstName"
+        v-slot="props"
+        >
+          {{ props.row.firstName }}
+        </b-table-column>
 
-      <!-- last name -->
-      <b-table-column
-      label="Last Name"
-      field="lastName"
-      v-slot="props"
-      >
-        {{ props.row.lastName }}
-      </b-table-column>
+        <!-- last name -->
+        <b-table-column
+        label="Last Name"
+        field="lastName"
+        v-slot="props"
+        >
+          {{ props.row.lastName }}
+        </b-table-column>
 
-      <!-- phone -->
-      <b-table-column
-      label="Phone"
-      field="phone"
-      v-slot="props"
-      >
-        {{ props.row.phone }}
-      </b-table-column>
+        <!-- phone -->
+        <b-table-column
+        label="Phone"
+        field="phone"
+        v-slot="props"
+        >
+          {{ props.row.phone }}
+        </b-table-column>
 
-      <!-- reason -->
-      <b-table-column
-      label="Reason"
-      field="reason"
-      v-slot="props"
-      >
-        {{ props.row.reason }}
-      </b-table-column>
+        <!-- reason -->
+        <b-table-column
+        label="Reason"
+        field="reason"
+        v-slot="props"
+        >
+          {{ props.row.reason }}
+        </b-table-column>
 
-      <template #footer v-if="warningMessage">
-        <div class="has-text-right has-text-danger">
-          {{ warningMessage }}
-        </div>
-      </template>
-    </b-table>
+        <template #footer v-if="warningMessage">
+          <div class="has-text-right has-text-danger">
+            {{ warningMessage }}
+          </div>
+        </template>
+      </b-table>
+    </div>
     
+    <!-- response table -->
+    <div v-show="csvAsJson.length === 0 && outboundUploadResponse.length > 0">
+      <h4 style="margin-bottom: 0;">
+        Response:
+      </h4>
+      <b-table id="outbound-response" :data="outboundUploadResponse">
+        <!-- Contact -->
+        <b-table-column
+        label="Contact"
+        field="Contact"
+        v-slot="props"
+        >
+          {{ props.row.Contact }}
+        </b-table-column>
+        
+        <!-- Result -->
+        <b-table-column
+        label="Result"
+        field="Result"
+        v-slot="props"
+        >
+          {{ props.row.Result }}
+        </b-table-column>
+
+        <!-- Error Description -->
+        <b-table-column
+        label="Error Description"
+        field="ErrorDescription"
+        v-slot="props"
+        >
+          {{ props.row.ErrorDescription }}
+        </b-table-column>
+      </b-table>
+    </div>
+
     <div class="buttons" style="display: flex; justify-content: flex-end;">
       <b-button
       rounded
@@ -86,14 +127,14 @@
       @click="clickDownload"
       :disabled="isDownloading"
       >
-        Download Example
+        Get Example
       </b-button>
 
       <b-button
       rounded
       type="is-primary"
       @click="clickClearForm"
-      :disabled="!fileData"
+      :disabled="!fileData && outboundUploadResponse.length === 0"
       >
         Clear Form
       </b-button>
@@ -128,7 +169,7 @@ export default {
   computed: {
     ...mapGetters([
       'working',
-      'kb'
+      'outboundUploadResponse'
     ]),
     isWorking () {
       return this.working.outbound.upload
@@ -168,6 +209,9 @@ export default {
       if (!this.isValid.valid) {
         return this.isValid.message
       }
+      // if (this.outboundUploadResponse) {
+      //   return JSON.stringify(this.outboundUploadResponse, null, 2)
+      // }
       return null
     },
     isValid () {
@@ -233,13 +277,20 @@ export default {
 
   methods: {
     ...mapActions([
+      'clearOutboundUploadResponse',
       'uploadOutboundContacts'
     ]),
     clickClearForm () {
+      // clear local uploaded file data
       this.fileData = null
+      // clear response
+      this.clearOutboundUploadResponse()
     },
-    clickSend () {
-      this.uploadOutboundContacts(this.csvAsJson)
+    async clickSend () {
+      // upload CSV contacts as JSON
+      await this.uploadOutboundContacts(this.csvAsJson)
+      // clear input form data
+      this.fileData = null
     },
     clickDownload () {
       // build CSV file data

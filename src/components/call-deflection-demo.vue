@@ -1,8 +1,11 @@
 <template>
   <panel title="Call Deflection" aria-id="call-deflection">
-
     <!-- channel selector -->
-    <channel v-model="form.channel" :channels="['sms', 'whatsapp']" style="padding: 1rem;"/>
+    <channel
+    v-model="form.channel"
+    :channels="['sms', 'whatsapp']"
+    style="padding: 1rem;"
+    />
 
     <!-- SMS -->
     <div v-show="form.channel === 'sms'" style="padding: 1rem;">
@@ -23,10 +26,10 @@
 
       <p>
         To reach the call deflection through SMS, please use these IVR options:
-        <br />
-        <br />
-        Press 1 to reach {{ requestBrandBuilding }}.<br />
-        Press 1 to request {{ requestCallReason }}.<br />
+        <br>
+        <br>
+        Press 1 to reach {{ requestBrandBuilding }}.<br>
+        Press 1 to request {{ requestCallReason }}.<br>
         Press 1 to receive a text message through SMS.
       </p>
     </div>
@@ -50,10 +53,10 @@
 
       <p>
         To reach the call deflection through WhatsApp, please use these IVR options:
-        <br />
-        <br />
-        Press 1 to reach {{ requestBrandBuilding }}.<br />
-        Press 1 to request {{ requestCallReason }}.<br />
+        <br>
+        <br>
+        Press 1 to reach {{ requestBrandBuilding }}.<br>
+        Press 1 to request {{ requestCallReason }}.<br>
         Press 2 to receive a text message through WhatsApp.
       </p>
       <b-message type="is-success" has-icon icon="information">

@@ -21,7 +21,9 @@
 
         <b-field label="Timezone">
           <b-select v-model="form.timezone">
-            <option disabled value="">Choose a Timezone</option>
+            <option disabled value="">
+              Choose a Timezone
+            </option>
             <option
             v-for="option of timezoneOptions"
             :key="option.value"
@@ -59,8 +61,8 @@
           <b-button
           rounded
           type="is-success"
-          @click="clickSend"
           :disabled="!sendIsEnabled"
+          @click="clickSend"
           >
             {{ working.outbound.upload ? 'Working...' : 'Send' }}
           </b-button>
@@ -124,14 +126,14 @@ export default {
     },
   },
 
-  mounted () {
-    this.updateForm()
-  },
-
   watch: {
     jdsIdentity () {
       this.updateForm()
     }
+  },
+
+  mounted () {
+    this.updateForm()
   },
 
   methods: {

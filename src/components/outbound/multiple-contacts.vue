@@ -33,50 +33,50 @@
       >
         <!-- # -->
         <b-table-column
+        v-slot="props"
         label="#"
         field="index"
-        v-slot="props"
         >
           {{ props.index + 1 }}
         </b-table-column>
 
         <!-- first name -->
         <b-table-column
+        v-slot="props"
         label="First Name"
         field="firstName"
-        v-slot="props"
         >
           {{ props.row.firstName }}
         </b-table-column>
 
         <!-- last name -->
         <b-table-column
+        v-slot="props"
         label="Last Name"
         field="lastName"
-        v-slot="props"
         >
           {{ props.row.lastName }}
         </b-table-column>
 
         <!-- phone -->
         <b-table-column
+        v-slot="props"
         label="Phone"
         field="phone"
-        v-slot="props"
         >
           {{ props.row.phone }}
         </b-table-column>
 
         <!-- reason -->
         <b-table-column
+        v-slot="props"
         label="Reason"
         field="reason"
-        v-slot="props"
         >
           {{ props.row.reason }}
         </b-table-column>
 
-        <template #footer v-if="warningMessage">
+        <template v-show="warningMessage" #footer>
           <div class="has-text-right has-text-danger">
             {{ warningMessage }}
           </div>
@@ -92,27 +92,27 @@
       <b-table id="outbound-response" :data="outboundUploadResponse">
         <!-- Contact -->
         <b-table-column
+        v-slot="props"
         label="Contact"
         field="Contact"
-        v-slot="props"
         >
           {{ props.row.Contact }}
         </b-table-column>
         
         <!-- Result -->
         <b-table-column
+        v-slot="props"
         label="Result"
         field="Result"
-        v-slot="props"
         >
           {{ props.row.Result }}
         </b-table-column>
 
         <!-- Error Description -->
         <b-table-column
+        v-slot="props"
         label="Error Description"
         field="ErrorDescription"
-        v-slot="props"
         >
           {{ props.row.ErrorDescription }}
         </b-table-column>
@@ -124,8 +124,8 @@
       rounded
       type="is-info"
       icon-left="download"
-      @click="clickDownload"
       :disabled="isDownloading"
+      @click="clickDownload"
       >
         Get Example
       </b-button>
@@ -133,8 +133,8 @@
       <b-button
       rounded
       type="is-primary"
-      @click="clickClearForm"
       :disabled="!fileData && outboundUploadResponse.length === 0"
+      @click="clickClearForm"
       >
         Clear Form
       </b-button>
@@ -142,8 +142,8 @@
       <b-button
       rounded
       type="is-success"
-      @click="clickSend"
       :disabled="!sendIsEnabled"
+      @click="clickSend"
       >
         {{ working.outbound.upload ? 'Working...' : 'Send' }}
       </b-button>

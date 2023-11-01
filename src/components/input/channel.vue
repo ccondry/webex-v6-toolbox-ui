@@ -71,7 +71,6 @@
       >
         <span>FB</span>
       </b-radio-button>
-      
     </b-field>
   </div>
 </template>

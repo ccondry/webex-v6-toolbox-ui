@@ -1,6 +1,5 @@
 <template>
   <panel title="Appointments" aria-id="appointments">
-
     <!-- channel selector -->
     <channel
     v-model="form.channel"
@@ -56,7 +55,6 @@
 <script>
 import Channel from './input/channel.vue'
 import Country from './input/country.vue'
-import Phone from './input/phone.vue'
 import VueQr from 'vue-qr'
 
 export default {
@@ -64,7 +62,6 @@ export default {
     VueQr,
     Channel,
     Country,
-    Phone
   },
 
   data () {

@@ -8,7 +8,7 @@
       <div>
         <logo />
         <layout-title />
-        <layout-background  />
+        <layout-background />
       </div>
     </div>
   </panel>

@@ -47,7 +47,6 @@
         v-if="hasEmail"
         label="Email Addresses"
         horizontal
-       
         >
           <b-taginput
           v-model="emails.values"
@@ -61,7 +60,6 @@
         v-if="hasCustomerId"
         label="Customer IDs"
         horizontal
-       
         >
           <b-taginput
           v-model="customerIds.values"

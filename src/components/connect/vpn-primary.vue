@@ -31,8 +31,8 @@
         style="margin-left: 1rem;"
         type="is-primary"
         rounded
-        @click="clickResetPassword"
         :disabled="isWorking"
+        @click="clickResetPassword"
         >
           {{ isWorking ? 'Resetting Your VPN Password...' : 'Reset VPN Password' }}
         </b-button>
@@ -75,6 +75,25 @@ export default {
     }
   },
 
+  watch: {
+    isWorking (val, oldVal) {
+      if (val && !oldVal) {
+        // password reset was started
+        // clear any previous exisitng interval, just in case
+        if (this.interval) {
+          clearInterval(this.interval)
+        }
+        // start interval to refresh user status until its done
+        this.interval = setInterval(() => {
+          this.getUser()
+        }, 15 * 1000)
+      } else {
+        // password reset completed. stop interval.
+        clearInterval(this.interval)
+      }
+    }
+  },
+
   methods: {
     ...mapActions([
       'getUser',
@@ -97,24 +116,5 @@ export default {
       })
     }
   },
-
-  watch: {
-    isWorking (val, oldVal) {
-      if (val && !oldVal) {
-        // password reset was started
-        // clear any previous exisitng interval, just in case
-        if (this.interval) {
-          clearInterval(this.interval)
-        }
-        // start interval to refresh user status until its done
-        this.interval = setInterval(() => {
-          this.getUser()
-        }, 15 * 1000)
-      } else {
-        // password reset completed. stop interval.
-        clearInterval(this.interval)
-      }
-    }
-  }
 }
 </script>

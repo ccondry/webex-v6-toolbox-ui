@@ -2,8 +2,8 @@
   <panel title="Outbound" aria-id="outbound">
     <b-loading :active="isLoading || isWorking" :is-full-page="false" />
     <div
-    style="display: flex; justify-content: space-around; width: 100%;"
     v-if="!isLoading"
+    style="display: flex; justify-content: space-around; width: 100%;"
     >
       <!-- already provisioned -->
       <div v-if="isProvisioned" class="demo-panels">

@@ -5,13 +5,13 @@
         Welcome to the dCloud <strong>Webex Contact Center Version 8</strong> Instant Demo Toolbox!
       </p>
     </div>
-    <br />
+    <br>
     <div style="display: flex; justify-content: space-around;">
       <p>
         Click <strong>Join Webex Support Room</strong> to get help, ask questions, and suggest new features.
       </p>
     </div>
-    <br />
+    <br>
     <div class="buttons" style="justify-content: space-around;">
       <b-button
       type="is-primary"
@@ -30,7 +30,6 @@
       </a>
       before to post any question on the support room.
     </b-message>
-   
   </panel>
 </template>
 
@@ -38,6 +37,13 @@
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
+  data () {
+    return {
+      demoGuideUrl: 'https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp',
+      labGuideUrl: ''
+    }
+  },
+
   computed: {
     ...mapGetters([
       'jwtUser',
@@ -45,13 +51,6 @@ export default {
     ]),
     isWorking () {
       return this.working.webex.joinSupportRoom
-    }
-  },
-
-  data () {
-    return {
-      demoGuideUrl: 'https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp',
-      labGuideUrl: ''
     }
   },
 

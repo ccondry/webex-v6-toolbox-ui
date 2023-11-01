@@ -5,7 +5,7 @@
         Choose the branding you want to use.
       </p>
     </div>
-    <br />
+    <br>
     <!-- <p>
       Choose the vertical you want to use, then click Go to Demo Website to
       show the customer side of the demo.
@@ -49,7 +49,7 @@
         Click <strong>Go to Demo Website</strong> to show the customer side of the demo.
       </p>
     </div>
-    <br />
+    <br>
 
     <b-field>
       <div class="buttons" style="justify-content: space-around;">
@@ -72,21 +72,20 @@
         <strong>Customer Profile</strong>
       </a>
       is updated with your phone numbers and email.
-      <br />
-      <br />
+      <br>
+      <br>
       You can create and configure your own branding on the
       <a href="/branding" target="_blank">
         <strong>Demo Branding Editor</strong>
       </a>.
-      <br />
-      <br />
+      <br>
+      <br>
       Please read the 
       <a :href="BrandingGuideUrl" target="_blank">
         <strong>Branding Demo Guide</strong>
       </a>
       to learn how to customize your demo.
     </b-message>
-
   </panel>
 </template>
 

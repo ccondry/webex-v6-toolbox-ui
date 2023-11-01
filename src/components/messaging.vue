@@ -14,7 +14,7 @@
       <center>
         <vue-qr :text="ambUrl" />
       </center>
-      If you use the Send button to start the demo, you must have used at least once the QR code above.<br /> Then you need to specify the phone number in the same format as you did when used the QR code for the first time.
+      If you use the Send button to start the demo, you must have used at least once the QR code above.<br> Then you need to specify the phone number in the same format as you did when used the QR code for the first time.
     </div>
 
     <div
@@ -36,7 +36,7 @@
       <a :href="rcsSupportedCountriesListUrl" target="_blank">
         here
       </a>
-      that your country/provider is supported for Google RCS.<br />
+      that your country/provider is supported for Google RCS.<br>
       Then use
       <a :href="enableRcsUrl" target="_blank">
         this link

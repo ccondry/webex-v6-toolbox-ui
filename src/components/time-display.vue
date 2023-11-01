@@ -10,7 +10,12 @@ import moment from 'moment'
 
 export default {
   props: {
-    value: {}
+    value: {
+      type: Number,
+      default () {
+        return new Date().getTime()
+      }
+    }
   },
 
   data () {
@@ -31,11 +36,6 @@ export default {
     }
   },
 
-  mounted () {
-    this.startInterval()
-    this.updateFromNow()
-  },
-
   watch: {
     value () {
       this.updateFromNow()
@@ -43,6 +43,11 @@ export default {
     now () {
       this.updateFromNow()
     }
+  },
+
+  mounted () {
+    this.startInterval()
+    this.updateFromNow()
   },
 
   methods: {

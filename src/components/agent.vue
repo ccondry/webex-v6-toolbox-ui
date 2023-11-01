@@ -257,8 +257,7 @@
         <span
         style="white-space: nowrap; display: block;"
         >
-          <strong
-          >
+          <strong>
             Webex Connect Password:
           </strong>
           <span
@@ -296,7 +295,6 @@
           />
         </span>
       </p>
-
     </article>
   </div>
 </template>

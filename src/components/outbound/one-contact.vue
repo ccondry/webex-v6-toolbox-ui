@@ -23,21 +23,6 @@
           <b-input v-model="form.phone" />
         </b-field>
 
-        <b-field label="Timezone">
-          <b-select v-model="form.timezone">
-            <option disabled value="">
-              Choose a Timezone
-            </option>
-            <option
-            v-for="option of timezoneOptions"
-            :key="option.value"
-            :value="option.value"
-            >
-              {{ option.label }}
-            </option>
-          </b-select>
-        </b-field>
-
         <!-- status -->
         <b-field label="Status">
           <div style="padding-left: 1rem;">
@@ -86,7 +71,6 @@ export default {
         firstName: '',
         lastName: '',
         phone: '',
-        timezone: ''
       },
     }
   },
@@ -95,7 +79,6 @@ export default {
     ...mapGetters([
       'jdsIdentity',
       'outboundSendOneResponse',
-      'timezones',
       'working',
     ]),
     isWorking () {
@@ -103,12 +86,6 @@ export default {
     },
     lastResult () {
       return outboundSendOneResponse.Result
-    },
-    timezoneOptions () {
-      return this.timezones.map(v => ({
-        value: v.name,
-        label: v.name
-      }))
     },
     smsPhone () {
       const phones = {
@@ -125,7 +102,6 @@ export default {
       return this.form.firstName &&
         this.form.lastName &&
         this.form.phone &&
-        this.form.timezone &&
         !this.isWorking
     },
   },
@@ -150,10 +126,6 @@ export default {
       this.form.phone = ''
     },
     updateForm () {
-      // set timezone to user browser timezone
-      const ianaTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-      console.log('ianaTimezone', ianaTimezone)
-      this.form.timezone = this.timezones.find(v => v.id === ianaTimezone).name
       if (this.jdsIdentity) {
         // set first name and last name to user's JDS customer name
         this.form.firstName = this.jdsIdentity.firstName

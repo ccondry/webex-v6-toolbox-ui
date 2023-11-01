@@ -221,7 +221,6 @@ export default {
       // this is true while the download to CSV file is working
       isDownloading: false,
       columns: ['firstName', 'lastName', 'phone', 'reason'],
-      timezone: ''
     }
   },
 
@@ -229,17 +228,10 @@ export default {
     ...mapGetters([
       'jdsIdentity',
       'outboundUploadResponse',
-      'timezones',
       'working',
     ]),
     responseHasAnyErrors () {
       return !!this.outboundUploadResponse.find(v => !v.Result)
-    },
-    timezoneOptions () {
-      return this.timezones.map(v => ({
-        value: v.name,
-        label: v.name
-      }))
     },
     isWorking () {
       return this.working.outbound.upload
@@ -350,13 +342,6 @@ export default {
       // read the file now
       reader.readAsDataURL(this.file)
     },
-    jdsIdentity () {
-      this.updateTimezone()
-    },
-  },
-
-  mounted () {
-    this.updateTimezone()
   },
 
   methods: {
@@ -364,11 +349,6 @@ export default {
       'clearOutboundUploadResponse',
       'uploadOutboundContacts'
     ]),
-    updateTimezone () {
-      // set timezone to user browser timezone
-      const ianaTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
-      this.timezone = this.timezones.find(v => v.id === ianaTimezone).name
-    },
     onResponseRowClass (row, index) {
       if (row.Result) {
         return 'is-success'
@@ -384,8 +364,7 @@ export default {
     },
     async clickSend () {
       // upload CSV contacts as JSON
-      const contacts = this.csvAsJson.map(v => ({...v, timezone: this.timezone}))
-      await this.uploadOutboundContacts(contacts)
+      await this.uploadOutboundContacts(this.csvAsJson)
       // clear input form data
       this.fileData = null
     },

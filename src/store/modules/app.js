@@ -1,6 +1,6 @@
 import * as types from '../mutation-types'
 import Vue from 'vue'
-import {ToastProgrammatic as Toast} from 'buefy/src'
+import {ToastProgrammatic as Toast} from 'buefy'
 import {version} from '../../../package.json'
 
 const state = {

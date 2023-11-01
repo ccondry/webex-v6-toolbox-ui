@@ -1,4 +1,4 @@
-import {ToastProgrammatic as Toast} from 'buefy/src'
+import {ToastProgrammatic as Toast} from 'buefy'
 import {addUrlQueryParams} from '../../utils'
 
 const state = {

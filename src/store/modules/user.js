@@ -1,7 +1,7 @@
 import {
   DialogProgrammatic as Dialog,
   ToastProgrammatic as Toast
-} from 'buefy/src'
+} from 'buefy'
 
 import * as types from '../mutation-types'
 

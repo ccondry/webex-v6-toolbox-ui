@@ -1,4 +1,4 @@
-import {ToastProgrammatic as Toast} from 'buefy/src'
+import {ToastProgrammatic as Toast} from 'buefy'
 
 const state = {
 }

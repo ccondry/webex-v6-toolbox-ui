@@ -13,7 +13,7 @@
 
       <!-- provision requested -->
       <div v-else-if="isProvisionRequested" class="demo-panels">
-        Please allow 24-48 hours for your outbound campaign to be proisioned.
+        Please allow 24-48 hours for your outbound campaign to be provisioned.
       </div>
 
       <!-- not provisioned or requested yet -->

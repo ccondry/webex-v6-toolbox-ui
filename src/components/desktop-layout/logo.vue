@@ -1,5 +1,5 @@
 <template>
-  <div class="tile is-parent">
+  <div class="tile is-parent" style="max-width: 32rem;">
     <article
     class="tile is-child box"
     style="border: 1px solid rgb(204, 204, 204);"

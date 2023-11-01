@@ -1,5 +1,5 @@
 <template>
-  <panel title="Outbound" aria-id="outbound">
+  <panel title="Outbound" aria-id="outbound" style="width: auto;">
     <b-loading :active="isLoading || isWorking" :is-full-page="false" />
     <div
     v-if="!isLoading"

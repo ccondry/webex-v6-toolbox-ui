@@ -1,5 +1,5 @@
 <template>
-  <panel title="Appointments" aria-id="appointments">
+  <panel title="Appointments" aria-id="appointments" style="max-width: 32rem;">
     <!-- channel selector -->
     <channel
     v-model="form.channel"

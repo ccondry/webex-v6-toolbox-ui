@@ -1,5 +1,9 @@
 <template>
-  <panel title="Send One Outbund Contact" aria-id="one-contact">
+  <panel
+  title="Send One Outbund Contact"
+  aria-id="one-contact"
+  style="max-width: 32rem;"
+  >
     <b-loading :active="isWorking" :is-full-page="false" />
     <div style="padding: 1rem;">
       <p>

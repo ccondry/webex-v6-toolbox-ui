@@ -1,15 +1,12 @@
-import {timezones} from './timezones.js'
 import * as types from '../mutation-types.js'
 
 const state = {
-  timezones,
   outboundSendOneResponse: null,
   outboundUploadResponse: [],
   outboundProvisionStatus: null,
 }
 
 const getters = {
-  timezones: state => state.timezones,
   outboundSendOneResponse: state => state.outboundSendOneResponse,
   outboundUploadResponse: state => state.outboundUploadResponse,
   outboundProvisionStatus: state => state.outboundProvisionStatus,

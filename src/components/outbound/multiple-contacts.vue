@@ -17,21 +17,6 @@
       </b-upload>
     </b-field>
 
-    <b-field label="Timezone">
-      <b-select v-model="timezone">
-        <option disabled value="">
-          Choose a Timezone
-        </option>
-        <option
-        v-for="option of timezoneOptions"
-        :key="option.value"
-        :value="option.value"
-        >
-          {{ option.label }}
-        </option>
-      </b-select>
-    </b-field>
-
     <!-- upload contacts table -->
     <div v-show="csvAsJson.length > 0">
       <h4 style="margin-bottom: 0;">

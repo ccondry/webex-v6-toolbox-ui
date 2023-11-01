@@ -160,3 +160,17 @@ div.content {
 .panel .panel {
   margin-bottom: 1rem;
 }
+
+tr.is-danger {
+  // background-color: $md-red-20;
+  background-color: #ffedeb;
+  color: #cc1400;
+}
+tr.is-success {
+  // background-color: $md-red-20;
+  background-color: #eefbef;
+  color: #23a42f;
+}
+
+// .message.is-danger .message-body {
+//     border-color: #FF5C4A;

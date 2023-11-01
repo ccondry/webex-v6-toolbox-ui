@@ -87,7 +87,11 @@
       <h4 style="margin-bottom: 0;">
         Response:
       </h4>
-      <b-table id="outbound-response" :data="outboundUploadResponse">
+      <b-table
+      id="outbound-response"
+      :data="outboundUploadResponse"
+      :row-class="onResponseRowClass"
+      >
         <!-- Contact -->
         <b-table-column
         v-slot="props"
@@ -278,6 +282,13 @@ export default {
       'clearOutboundUploadResponse',
       'uploadOutboundContacts'
     ]),
+    onResponseRowClass (row, index) {
+      if (row.Result) {
+        return 'is-success'
+      } else {
+        return 'is-danger'
+      }
+    },
     clickClearForm () {
       // clear local uploaded file data
       this.fileData = null

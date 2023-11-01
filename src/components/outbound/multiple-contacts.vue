@@ -8,14 +8,12 @@
       expanded
       accept=".csv"
       >
-        <section class="section">
-          <div class="content has-text-centered">
-            <p>
-              <b-icon icon="upload" size="is-large" />
-            </p>
-            <p>Upload your outbound contacts CSV file here</p>
-          </div>
-        </section>
+        <div class="content has-text-centered" style="padding: 1rem;">
+          <p>
+            <b-icon icon="upload" size="is-large" />
+          </p>
+          <p>Upload your outbound contacts CSV file here</p>
+        </div>
       </b-upload>
     </b-field>
 

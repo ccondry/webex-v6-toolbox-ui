@@ -17,6 +17,21 @@
       </b-upload>
     </b-field>
 
+    <b-field label="Timezone">
+      <b-select v-model="timezone">
+        <option disabled value="">
+          Choose a Timezone
+        </option>
+        <option
+        v-for="option of timezoneOptions"
+        :key="option.value"
+        :value="option.value"
+        >
+          {{ option.label }}
+        </option>
+      </b-select>
+    </b-field>
+
     <!-- upload contacts table -->
     <div v-show="csvAsJson.length > 0">
       <h4 style="margin-bottom: 0;">
@@ -92,13 +107,49 @@
       :data="outboundUploadResponse"
       :row-class="onResponseRowClass"
       >
-        <!-- Contact -->
+        <!-- # -->
         <b-table-column
         v-slot="props"
-        label="Contact"
-        field="Contact"
+        label="#"
+        field="index"
         >
-          {{ props.row.Contact }}
+          {{ props.index + 1 }}
+        </b-table-column>
+
+        <!-- first name -->
+        <b-table-column
+        v-slot="props"
+        label="First Name"
+        field="Contact.firstName"
+        >
+          {{ props.row.Contact.firstName }}
+        </b-table-column>
+
+        <!-- last name -->
+        <b-table-column
+        v-slot="props"
+        label="Last Name"
+        field="Contact.lastName"
+        >
+          {{ props.row.Contact.lastName }}
+        </b-table-column>
+
+        <!-- phone -->
+        <b-table-column
+        v-slot="props"
+        label="Phone"
+        field="Contact.phone"
+        >
+          {{ props.row.Contact.phone }}
+        </b-table-column>
+
+        <!-- reason -->
+        <b-table-column
+        v-slot="props"
+        label="Reason"
+        field="Contact.reason"
+        >
+          {{ props.row.Contact.reason }}
         </b-table-column>
         
         <!-- Result -->
@@ -107,13 +158,14 @@
         label="Result"
         field="Result"
         >
-          {{ props.row.Result }}
+          {{ props.row.Result ? 'Success' : 'Failed' }}
         </b-table-column>
 
         <!-- Error Description -->
         <b-table-column
         v-slot="props"
-        label="Error Description"
+        :visible="responseHasAnyErrors"
+        label="Error"
         field="ErrorDescription"
         >
           {{ props.row.ErrorDescription }}
@@ -168,14 +220,27 @@ export default {
       fileData: null,
       // this is true while the download to CSV file is working
       isDownloading: false,
+      columns: ['firstName', 'lastName', 'phone', 'reason'],
+      timezone: ''
     }
   },
 
   computed: {
     ...mapGetters([
+      'jdsIdentity',
+      'outboundUploadResponse',
+      'timezones',
       'working',
-      'outboundUploadResponse'
     ]),
+    responseHasAnyErrors () {
+      return !!this.outboundUploadResponse.find(v => !v.Result)
+    },
+    timezoneOptions () {
+      return this.timezones.map(v => ({
+        value: v.name,
+        label: v.name
+      }))
+    },
     isWorking () {
       return this.working.outbound.upload
     },
@@ -194,7 +259,14 @@ export default {
         // header is the first row
         const header = rows[0]
         // split header into columns array
-        const columns = header.split(',').map(v => v.trim())
+        const columns = header.split(',').map(v => v.trim()).map(v => {
+          // match column name to the correct case
+          const match = this.columns.find(x => x.toLowerCase() === v.toLowerCase())
+          if (match) {
+            return match
+          }
+          return v
+        })
         // body is all rows after header
         const body = rows.slice(1)
         // map body rows to an array of key: value objects using columns
@@ -277,7 +349,14 @@ export default {
       }
       // read the file now
       reader.readAsDataURL(this.file)
-    }
+    },
+    jdsIdentity () {
+      this.updateTimezone()
+    },
+  },
+
+  mounted () {
+    this.updateTimezone()
   },
 
   methods: {
@@ -285,6 +364,11 @@ export default {
       'clearOutboundUploadResponse',
       'uploadOutboundContacts'
     ]),
+    updateTimezone () {
+      // set timezone to user browser timezone
+      const ianaTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
+      this.timezone = this.timezones.find(v => v.id === ianaTimezone).name
+    },
     onResponseRowClass (row, index) {
       if (row.Result) {
         return 'is-success'
@@ -300,15 +384,15 @@ export default {
     },
     async clickSend () {
       // upload CSV contacts as JSON
-      await this.uploadOutboundContacts(this.csvAsJson)
+      const contacts = this.csvAsJson.map(v => ({...v, timezone: this.timezone}))
+      await this.uploadOutboundContacts(contacts)
       // clear input form data
       this.fileData = null
     },
     clickDownload () {
       // build CSV file data
       this.isDownloading = true
-      const columns = ['firstName', 'lastName', 'phone', 'reason',]
-      const headers = columns.join(',') + '\r\n'
+      const headers = this.columns.join(',') + '\r\n'
       const rows = [
         ['Keanu', 'Reeves', '1234567890', 'support'],
         ['Viggo', 'Mortensen', '0987654321', 'sales'],

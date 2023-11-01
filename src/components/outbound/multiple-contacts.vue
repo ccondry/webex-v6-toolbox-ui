@@ -121,7 +121,10 @@
       </b-table>
     </div>
 
-    <div class="buttons" style="display: flex; justify-content: flex-end;">
+    <div
+    class="buttons"
+    style="padding-top: 1rem; display: flex; justify-content: flex-end;"
+    >
       <b-button
       rounded
       type="is-info"

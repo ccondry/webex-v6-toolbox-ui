@@ -45,6 +45,13 @@
       />
     </b-field>
 
+    <!-- Webex Connect Email -->
+    <b-field label="Outbound Provision">
+      <b-input
+      v-model="model.outboundProvision"
+      />
+    </b-field>
+
     <!-- Save Button -->
     <b-field>
       <b-button

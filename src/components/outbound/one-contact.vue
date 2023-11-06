@@ -1,6 +1,6 @@
 <template>
   <panel
-  title="Send One Outbund Contact"
+  title="Send One Outbound Contact"
   aria-id="one-contact"
   style="max-width: 32rem;"
   >

@@ -87,17 +87,6 @@ export default {
     lastResult () {
       return outboundSendOneResponse.Result
     },
-    smsPhone () {
-      const phones = {
-        US: '+1-201-971-2111',
-        UK: '+44-7984-421429',
-        SNG: '+65-82400537'
-      }
-      return phones[this.form.country] || '' 
-    },
-    smsQr () {
-      return `SMSTO:${this.smsPhone}:apptdemo`
-    },
     sendIsEnabled () {
       return this.form.firstName &&
         this.form.lastName &&

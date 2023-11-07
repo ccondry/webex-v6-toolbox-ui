@@ -113,7 +113,7 @@ export default {
       const defaultMessage = 'Cumulus Healthcare store'
 
       try {
-        const verticalMessage = this.vertical.webexconnect.callDeflection.brandBuilding
+        const verticalMessage = this.vertical.wxcc.callDeflection.brandBuilding
         return verticalMessage || defaultMessage
       } catch (e) {
         return defaultMessage
@@ -123,7 +123,7 @@ export default {
       const defaultMessage = 'cleaning services'
 
       try {
-        const verticalMessage = this.vertical.webexconnect.callDeflection.callReason
+        const verticalMessage = this.vertical.wxcc.callDeflection.callReason
         return verticalMessage || defaultMessage
       } catch (e) {
         return defaultMessage

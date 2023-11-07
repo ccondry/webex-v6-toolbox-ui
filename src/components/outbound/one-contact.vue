@@ -23,6 +23,10 @@
           <b-input v-model="form.phone" />
         </b-field>
 
+        <b-field label="Reason">
+          <b-input v-model="form.reason" />
+        </b-field>
+
         <!-- status -->
         <b-field label="Status">
           <div style="padding-left: 1rem;">
@@ -71,6 +75,7 @@ export default {
         firstName: '',
         lastName: '',
         phone: '',
+        reason: 'support'
       },
     }
   },
@@ -91,6 +96,7 @@ export default {
       return this.form.firstName &&
         this.form.lastName &&
         this.form.phone &&
+        this.form.reason &&
         !this.isWorking
     },
   },
@@ -113,6 +119,7 @@ export default {
       this.form.firstName = ''
       this.form.lastName = ''
       this.form.phone = ''
+      this.form.reason = ''
     },
     updateForm () {
       if (this.jdsIdentity) {

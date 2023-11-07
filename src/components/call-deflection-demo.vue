@@ -1,5 +1,9 @@
 <template>
-  <panel title="Call Deflection" aria-id="call-deflection">
+  <panel
+  title="Call Deflection"
+  aria-id="call-deflection"
+  style="max-width: 32rem;"
+  >
     <!-- channel selector -->
     <channel
     v-model="form.channel"

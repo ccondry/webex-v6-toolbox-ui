@@ -17,7 +17,7 @@
       </center>
       <p>
         Option 2: Open WhatsApp, then open the dCloud Webex Connect demo number
-        and type "start apptdemo" directly to start the demo.
+        and type "apptdemo" directly to start the demo.
       </p>
       <p>
         <!-- Option 3: Enter your name and phone number and push Send to start the
@@ -84,7 +84,7 @@ export default {
       return phones[this.form.country] || '' 
     },
     smsQr () {
-      return `SMSTO:${this.smsPhone}:apptdemo`
+      return `SMSTO:${this.smsPhone}:start apptdemo`
     }
   },
 }

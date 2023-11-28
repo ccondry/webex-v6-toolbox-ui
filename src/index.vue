@@ -33,10 +33,10 @@
         <mobile v-if="isProvisioned" />
 
         <!-- Demos -->
-        <demos v-if="isProvisioned && (isAdmin || isAdminSu)" />
+        <demos v-if="isProvisioned && (isAdmin || isAdminSu || isQa)" />
 
         <!-- Outbound -->
-        <outbound v-if="isProvisioned && (isAdmin || isAdminSu)" />
+        <outbound v-if="isProvisioned && (isAdmin || isAdminSu || isQa)" />
 
         <!-- Agent Desktop Layout -->
         <desktop-layout v-if="isProvisioned" />

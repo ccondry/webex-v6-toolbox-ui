@@ -99,7 +99,7 @@ export default {
       brandFilter: 'mine',
       vertical: '',
       multichannel: 'ece',
-      BrandingGuideUrl: 'https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/contact-center/common/out_brand_demo_common/b_brand_demo_common.html?dc=rtp',
+      BrandingGuideUrl: 'https://publish-p104909-e1035859.adobeaemcloud.com/content/cisco-dcloud/us/en/heretto.html?for-path=branding-your-demo',
       showMore: false
     }
   },

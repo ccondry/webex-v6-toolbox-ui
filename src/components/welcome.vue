@@ -39,7 +39,7 @@ import { mapActions, mapGetters } from 'vuex'
 export default {
   data () {
     return {
-      demoGuideUrl: 'https://dcloud-docs.cisco.com/c/r/dcloud-docs/sites/en_us/collaboration/out_wxcc_v8/b_webex_contact_center_v8.html?dc=rtp',
+      demoGuideUrl: 'https://publish-p104909-e1035859.adobeaemcloud.com/content/cisco-dcloud/us/en/heretto.html?for-path=webex-contact-center-v8',
       labGuideUrl: ''
     }
   },

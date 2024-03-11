@@ -209,10 +209,10 @@ export default {
       this.addIdentity('customerId')
     },
     addIdentity (type) {
-      this.model.identities.push({type, identities: []})
+      this.model.customerId.push({type, identities: []})
     },
     getIdentity (type) {
-      return this.model.identities.find(v => v.type === type)
+      return this.model.customerId.find(v => v.type === type)
     },
     updateCache () {
       this.model = JSON.parse(JSON.stringify(this.value))

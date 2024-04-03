@@ -146,6 +146,48 @@
         />
       </p>
 
+      <!-- servicenow login -->
+      <p
+      v-if="['Agent'].includes(agent.role)"
+      style="white-space: nowrap;"
+      >
+        <strong>
+          Service Now Login: sjeffers
+        </strong>
+        <copy value="sjeffers" name="Service Now Login" />
+      </p>
+
+      <!-- password -->
+      <p v-if="['Agent'].includes(agent.role)">
+        <strong>
+          Service Now Password: {{ servicenowPassword }}
+        </strong>
+        <copy :value="servicenowPassword" name="Service Now Password" />
+      </p>
+
+      <!-- agent servicenow desktop URL -->
+      <p
+      v-if="['Agent'].includes(agent.role)"
+      style="white-space: nowrap;"
+      >
+        <strong>
+          Service Now Desktop:
+          <span v-show="isLoading">Loading...</span>
+          <a
+          v-show="servicenowUrl.length > 0"
+          :href="servicenowUrl"
+          target="_blank"
+          >
+            {{ servicenowUrl }}
+          </a>
+        </strong>
+        <copy
+        v-show="servicenowUrl.length > 0"
+        :value="servicenowUrl"
+        name="Service Now Desktop URL"
+        />
+      </p>
+
       <!-- control hub URL -->
       <p
       v-if="['Administrator'].includes(agent.role)"
@@ -310,6 +352,13 @@ export default {
     }
   },
 
+  data () {
+    return {
+      
+      servicenowPassword: 'dCloud135!'
+    }
+  },
+
   computed: {
     ...mapGetters([
       'jwtUser',
@@ -322,6 +371,10 @@ export default {
     },
     salesforceUrl () {
       return 'https://login.salesforce.com'
+    },
+
+    servicenowUrl () {
+      return 'https://dev146290.service-now.com/'
     },
     agentPortalUrl () {
       try {

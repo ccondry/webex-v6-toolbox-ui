@@ -30,7 +30,7 @@
       </a>
       before to post any question on the support room.
     </b-message>
-
+    <br><br>
     <b-message type="is-success" has-icon icon="information">
       Please watch the 
       <a :href="videoServicenow" target="_blank">
@@ -48,7 +48,7 @@ export default {
   data () {
     return {
       demoGuideUrl: 'https://publish-p104909-e1035859.adobeaemcloud.com/content/cisco-dcloud/us/en/heretto.html?for-path=webex-contact-center-v8',
-      videoServicenow: 'https://app.vidcast.io/share/76a9cf53-e7da-473e-8acf-b36a57eb0d23',
+      videoServicenow: 'https://app.vidcast.io/share/39cf4d84-82d6-4cd6-960f-ea4936ecb9a3',
       labGuideUrl: ''
     }
   },

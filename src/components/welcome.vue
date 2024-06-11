@@ -36,7 +36,7 @@
       <a :href="videoServicenow" target="_blank">
         <strong>Service Now Video</strong>
       </a>
-      before to post any question on the support room.
+      before to post any question on the support room. Also make sure you download Service Now Desktop Layout <a href="https://mm-static.cxdemo.net/wxcc/GlobalLayout_ServiceNow.json">here</a>, and upload it before you do the demo.
     </b-message>
   </panel>
 </template>
@@ -49,6 +49,7 @@ export default {
     return {
       demoGuideUrl: 'https://publish-p104909-e1035859.adobeaemcloud.com/content/cisco-dcloud/us/en/heretto.html?for-path=webex-contact-center-v8',
       videoServicenow: 'https://app.vidcast.io/share/39cf4d84-82d6-4cd6-960f-ea4936ecb9a3',
+      servicenowLayout: '',
       labGuideUrl: ''
     }
   },

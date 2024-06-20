@@ -374,7 +374,7 @@ export default {
     },
 
     servicenowUrl () {
-      return 'https://dev146290.service-now.com/'
+      return 'https://dev267782.service-now.com/'
     },
     agentPortalUrl () {
       try {

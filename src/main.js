@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import App from './index.vue'
+import App from './App.vue'
 import store from './store'
 // common panel component
-import Panel from './components/panel.vue'
-import Copy from './components/copy.vue'
+import Panel from './components/panel'
+import Copy from './components/copy'
 import './style.scss'
 
 // use 'buefy/src' when running from git,

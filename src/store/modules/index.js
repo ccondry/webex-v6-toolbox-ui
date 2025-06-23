@@ -1,4 +1,3 @@
-import agents from './agents'
 import app from './app'
 import dcloud from './dcloud'
 import defaults from './defaults'
@@ -11,7 +10,6 @@ import fetch from './fetch'
 import outbound from './outbound'
 
 export default {
-  agents,
   app,
   dcloud,
   defaults,

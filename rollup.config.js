@@ -27,7 +27,6 @@ export default {
     sourcemap: !production ? 'inline' : false,
     name: 'app',
   },
-  extensions: ['.vue'],
   plugins: [
     cleaner({
       targets: [
@@ -36,7 +35,7 @@ export default {
     }),
     copy({
       targets: [
-        { src: 'src/index.ejs', dest: 'dist/webex-v6' },
+        { src: 'src/index.html', dest: 'dist/webex-v6' },
         { src: 'src/assets/*', dest: 'dist/webex-v6/assets' }
       ]
     }),
@@ -45,14 +44,17 @@ export default {
       entries: [{ find: 'src', replacement: __dirname + '/src' }],
     }),
     image(),
-    postcss({ extract: 'style.css', config: { path: 'postcss.config.js' } }),
+    postcss({ extract: 'app.css', config: { path: 'postcss.config.js' } }),
     requireContext(),
     nodeResolve({
       jsnext: true,
       main: true,
       browser: true,
+      extensions: ['.js', '.json', '.vue']
     }),
-    commonjs(),
+    commonjs({
+      // requireReturnsDefault: 'auto',
+    }),
     // scriptSetup(),
     vue({
       css: false,

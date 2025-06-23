@@ -23,7 +23,7 @@ else
         #echo "removing old web files"
         #rm -rf /var/www/html/
         echo "copying new web files"
-        cp -rf dist/branding/* /var/www/toolbox/branding/
+        cp -rf dist/webex-v6/* /var/www/toolbox/webex-v6/
       else
         echo "npm failed to run build script"
       fi

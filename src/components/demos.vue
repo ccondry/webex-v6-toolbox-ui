@@ -4,6 +4,7 @@
       <div class="demo-panels">
         <appointment-demo />
         <call-deflection-demo />
+        <ai-agent-demo />
       </div>
     </div>
   </panel>
@@ -12,11 +13,14 @@
 <script>
 import AppointmentDemo from './appointment-demo.vue'
 import CallDeflectionDemo from './call-deflection-demo.vue'
+import AiAgentDemo from './ai-agent-demo.vue'
 
 export default {
   components: {
     AppointmentDemo,
     CallDeflectionDemo,
+    AiAgentDemo,
+
   },
 }
 </script>

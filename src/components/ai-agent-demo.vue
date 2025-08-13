@@ -17,7 +17,7 @@
       </center>
       <p>
         Option 2: Open WhatsApp, then open the dCloud Webex Connect demo number
-        and type "aiagent" directly to start the demo.
+        and type "hello" directly to start the demo.
       </p>
       <p>
         <!-- Option 3: Enter your name and phone number and push Send to start the
@@ -42,7 +42,7 @@
         <vue-qr :text="smsQr" />
       </center>
       <p>
-        Option 2: Open your phone's SMS app, then text "start aiagent" to
+        Option 2: Open your phone's SMS app, then text "hello" to
         <strong>
           {{ smsPhone }}
         </strong>

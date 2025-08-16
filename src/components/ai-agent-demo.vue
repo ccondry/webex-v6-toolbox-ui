@@ -70,7 +70,7 @@ export default {
         country: 'US',
         channel: 'sms'
       },
-      whatsappUrl: 'https://wa.me/12078135106?text=aiagent',
+      whatsappUrl: 'https://wa.me/12019712111?text=aiagent',
     }
   },
 

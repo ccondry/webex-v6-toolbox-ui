@@ -23,6 +23,9 @@
         <!-- Demo Website -->
         <demo-website v-if="isProvisioned" />
 
+        <!-- AI agent type selection -->
+        <ai-agent v-if="isProvisioned" />
+
         <!-- VPN and Workstation connection -->
         <connect v-if="isProvisioned" />
 
@@ -65,6 +68,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import AiAgent from './components/ai-agent'
 import Navbar from './components/navbar'
 import Welcome from './components/welcome'
 import Provision from './components/provision'
@@ -85,6 +89,7 @@ import WebexConnect from './components/webex-connect'
 
 export default {
   components: {
+    AiAgent,
     Navbar,
     Welcome,
     Provision,

@@ -1,24 +1,31 @@
 #!/bin/sh
+
+echo "running npm install..."
+npm i
+if [ $? -ne 0 ]; then
+  echo "failed npm install"
+  exit 1
+fi
+
+echo "running npm run build..."
+npm run build
+if [ $? -ne 0 ]; then
+  echo "failed npm run build"
+  exit 1
+fi
+
 echo "creating www folder..."
 mkdir -p /var/www/toolbox/webex-v6
-echo "created www folder"
-echo "running yarn..."
-yarn
-if [ $? -eq 0 ]; then
-  echo "running yarn build..."
-  yarn build
-  while [ $? != 0 ]
-  do
-    echo "failed to build webex-v6-toolbox-ui website files. trying again..."
-    yarn build
-  done
-  echo "yarn build successful. copying dist files to www folder..."
-  cp -rf dist/* /var/www/toolbox/webex-v6/
-  if [ $? -eq 0 ]; then
-    echo "successfully installed webex-v6-toolbox-ui website files"
-  else
-    echo "failed to install webex-v6-toolbox-ui website files"
-  fi
-else
-  echo "yarn failed"
+if [ $? -ne 0 ]; then
+  echo "failed to create www folder /var/www/toolbox/webex-v6/"
+  exit 1
 fi
+
+echo "copying dist files to www folder..."
+cp -rf dist/* /var/www/toolbox/webex-v6/
+if [ $? -ne 0 ]; then
+  echo "failed to copy webex-v6-toolbox-ui website files to www folder"
+  exit 1
+fi
+
+echo "successfully built and installed webex-v6-toolbox-ui website files!"

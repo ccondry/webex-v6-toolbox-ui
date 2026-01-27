@@ -374,7 +374,7 @@ export default {
     },
 
     servicenowUrl () {
-      return 'https://dev267782.service-now.com/'
+      return 'https://dev193038.service-now.com/now/nav/ui/classic/'
     },
     agentPortalUrl () {
       try {

@@ -32,11 +32,9 @@
     </b-message>
     <br><br>
     <b-message type="is-success" has-icon icon="information">
-      Please watch the 
-      <a :href="videoServicenow" target="_blank">
-        <strong>WxCC v8 Videos before you start the demo</strong>
-      </a>
-      before to post any question on the support room. <br>
+      Please watch the
+      <strong>WxCC v8 videos</strong>
+      in the next section before to post any question on the support room.
     </b-message>
   </panel>
 </template>
@@ -48,7 +46,6 @@ export default {
   data () {
     return {
       demoGuideUrl: 'https://publish-p104909-e1035859.adobeaemcloud.com/content/cisco-dcloud/us/en/heretto.html?for-path=webex-contact-center-v8',
-      videoServicenow: 'https://app.vidcast.io/pages/1623560b-4ddf-4fb6-8673-ff8f328226a3',
       servicenowLayout: '',
       labGuideUrl: ''
     }

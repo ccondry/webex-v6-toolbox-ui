@@ -8,6 +8,7 @@ import webex from './webex'
 import layout from './layout'
 import fetch from './fetch'
 import outbound from './outbound'
+import webexCampaign from './webex-campaign'
 
 export default {
   app,
@@ -20,4 +21,5 @@ export default {
   layout,
   fetch,
   outbound,
+  webexCampaign,
 }

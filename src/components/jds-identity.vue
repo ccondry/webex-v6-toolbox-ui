@@ -12,15 +12,28 @@
       <p class="subtitle">
         Customer
       </p>
+      <div v-if="!model && !isLoading">
+        <p>
+          No JDS customer information was found for your account.
+        </p>
+        <b-button
+        rounded
+        type="is-info"
+        style="margin-top: 1rem;"
+        @click="clickRefresh"
+        >
+          Refresh
+        </b-button>
+      </div>
       <div v-if="model" style="min-width: 34rem;">
         <!-- name -->
         <b-field label="ID" horizontal>
           <b-input v-model="model.id" disabled />
         </b-field>
-        <b-field label="Created" horizontal>
+        <b-field v-if="model.createdAt" label="Created" horizontal>
           <time-display :value="model.createdAt" />
         </b-field>
-        <b-field label="Modified" horizontal>
+        <b-field v-if="model.modifiedAt" label="Modified" horizontal>
           <time-display :value="model.modifiedAt" />
         </b-field>
         <b-field label="First Name" horizontal>
@@ -29,57 +42,33 @@
         <b-field label="Last Name" horizontal>
           <b-input v-model="model.lastName" />
         </b-field>
-          
-        <b-field
-        v-if="hasPhone"
-        label="Phone Numbers"
-        horizontal
-        >
+        <b-field label="Phone Numbers" horizontal>
           <b-taginput
-          v-model="phones.values"
+          v-model="model.phone"
           :allow-new="true"
           :open-on-focus="true"
           icon="account-box"
           placeholder="add phone"
           />
         </b-field>
-        <b-field
-        v-if="hasEmail"
-        label="Email Addresses"
-        horizontal
-        >
+        <b-field label="Email Addresses" horizontal>
           <b-taginput
-          v-model="emails.values"
+          v-model="model.email"
           :allow-new="true"
           :open-on-focus="true"
           icon="account-box"
           placeholder="add email"
           />
         </b-field>
-        <b-field
-        v-if="hasCustomerId"
-        label="Customer IDs"
-        horizontal
-        >
+        <b-field label="Customer IDs" horizontal>
           <b-taginput
-          v-model="customerIds.values"
+          v-model="model.customerId"
           :allow-new="true"
           :open-on-focus="true"
           icon="account-box"
           placeholder="add customer ID"
           />
         </b-field>
-        <div class="buttons">
-          <b-button v-if="!hasPhone" @click="clickAddPhone">
-            Add Phone
-          </b-button>
-          <b-button v-if="!hasEmail" @click="clickAddEmail">
-            Add Email
-          </b-button>
-          <b-button v-if="!hasCustomerId" @click="clickAddCustomerId">
-            Add Customer ID
-          </b-button>
-        </div>
   
         <!-- save and reset buttons -->
         <div class="buttons" style="margin-top: 1rem;">
@@ -150,24 +139,6 @@ export default {
     isWorking () {
       return this.working.jdsIdentity.save
     },
-    hasPhone () {
-      return this.getIdentity('phone') ? true : false
-    },
-    hasEmail () {
-      return this.getIdentity('email') ? true : false
-    },
-    hasCustomerId () {
-      return this.getIdentity('customerId') ? true : false
-    },
-    phones () {
-      return this.getIdentity('phone')
-    },
-    emails () {
-      return this.getIdentity('email')
-    },
-    customerIds () {
-      return this.getIdentity('customerId')
-    },
     modelJson: {
       get () {
         return JSON.stringify(this.model, null, 2)
@@ -199,23 +170,14 @@ export default {
       'getJdsIdentity',
       'saveJdsIdentity'
     ]),
-    clickAddPhone () {
-      this.addIdentity('phone')
-    },
-    clickAddEmail () {
-      this.addIdentity('email')
-    },
-    clickAddCustomerId () {
-      this.addIdentity('customerId')
-    },
-    addIdentity (type) {
-      this.model.customerId.push({type, identities: []})
-    },
-    getIdentity (type) {
-      return this.model.customerId.find(v => v.type === type)
-    },
     updateCache () {
-      this.model = JSON.parse(JSON.stringify(this.value))
+      this.model = this.value ? JSON.parse(JSON.stringify(this.value)) : null
+      if (!this.model) {
+        return
+      }
+      if (!Array.isArray(this.model.phone)) this.model.phone = []
+      if (!Array.isArray(this.model.email)) this.model.email = []
+      if (!Array.isArray(this.model.customerId)) this.model.customerId = []
     },
     clickSave () {
       this.saveJdsIdentity(this.model)

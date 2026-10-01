@@ -21,7 +21,11 @@ const getters = {
 
     return {
       jds: {
-        identity: authUrlBase + '/webex-v6/jds/identity',
+        // Local dev looks up the identity with WEBEX_CC_TOKEN.
+        // Production uses the login API, which calls the same JDS URL.
+        identity: getters.isProduction
+          ? authUrlBase + '/webex-v6/jds/identity'
+          : 'http://127.0.0.1:5056/jds/identity',
       },
       webex: authUrlBase + '/resource/joinWebexV6SupportRoom',
       authVersion: authUrlBase + '/version',
@@ -41,6 +45,11 @@ const getters = {
       imiChangeEmail: authUrlBase + '/webex-v6/imi-change-email',
       outboundContacts: authUrlBase + '/webex-v6/outbound/contacts',
       outboundProvision: authUrlBase + '/webex-v6/outbound/provision',
+      // Local dev calls the Webex Create Contact List API through the dev server.
+      // Production still uses the login API, which makes the same Webex call.
+      webexCampaignContacts: getters.isProduction
+        ? authUrlBase + '/webex-v6/webex-campaign/contacts'
+        : 'http://127.0.0.1:5056/contacts',
     }
   },
   defaultRestOptions: (state, getters) => {

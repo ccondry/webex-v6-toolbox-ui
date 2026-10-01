@@ -13,6 +13,7 @@ const state = {
     dcloud: {},
     webex: {},
     outbound: {},
+    webexCampaign: {},
   },
   working: {
     app: {},
@@ -24,6 +25,7 @@ const state = {
     webex: {},
     demo: {},
     outbound: {},
+    webexCampaign: {},
   },
   isProduction: process.env.NODE_ENV === 'production',
   uiVersion: version,

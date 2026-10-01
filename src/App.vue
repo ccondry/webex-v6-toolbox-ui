@@ -14,6 +14,9 @@
         <!-- welcome -->
         <welcome />
 
+        <!-- Demo videos -->
+        <demo-videos />
+
         <!-- Provision -->
         <provision v-if="!isProvisionStarted && !isProvisioned" />
 
@@ -26,9 +29,6 @@
         <!-- AI agent type selection -->
         <ai-agent v-if="isProvisioned" />
 
-        <!-- VPN and Workstation connection -->
-        <connect v-if="isProvisioned" />
-
         <!-- Agents and Supervisors -->
         <agents v-if="isProvisioned" />
 
@@ -40,6 +40,9 @@
 
         <!-- Outbound -->
         <outbound v-if="isProvisioned" />
+
+        <!-- Webex Campaign -->
+        <webex-campaign v-if="isProvisioned && (isAdmin || isAdminSu)" />
 
         <!-- Agent Desktop Layout -->
         <desktop-layout v-if="isProvisioned" />
@@ -71,11 +74,13 @@ import { mapActions, mapGetters } from 'vuex'
 import AiAgent from './components/ai-agent'
 import Navbar from './components/navbar'
 import Welcome from './components/welcome'
+import DemoVideos from './components/demo-videos'
 import Provision from './components/provision'
 import ProvisionProgress from './components/provision-progress'
 import Agents from './components/agents'
 import Demos from './components/demos'
 import Outbound from './components/outbound'
+import WebexCampaign from './components/webex-campaign'
 import DemoWebsite from './components/demo-website'
 // import Reprovision from './components/reprovision'
 import AppFooter from './components/app-footer'
@@ -83,7 +88,6 @@ import AppFooter from './components/app-footer'
 import Admin from './components/admin'
 import Mobile from './components/mobile/index.vue'
 import LaptopDemo from './components/laptop-demo'
-import Connect from './components/connect'
 import DesktopLayout from './components/desktop-layout'
 import WebexConnect from './components/webex-connect'
 
@@ -92,6 +96,7 @@ export default {
     AiAgent,
     Navbar,
     Welcome,
+    DemoVideos,
     Provision,
     ProvisionProgress,
     Agents,
@@ -103,8 +108,8 @@ export default {
     Admin,
     Mobile,
     LaptopDemo,
-    Connect,
     Outbound,
+    WebexCampaign,
     DesktopLayout,
     WebexConnect
   },

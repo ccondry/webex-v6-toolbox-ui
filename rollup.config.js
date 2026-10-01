@@ -14,6 +14,7 @@ import requireContext from 'rollup-plugin-require-context'
 import { visualizer } from 'rollup-plugin-visualizer'
 import copy from 'rollup-plugin-copy'
 import cleaner from 'rollup-plugin-cleaner'
+import { spawn } from 'child_process'
 
 const production = !process.env.ROLLUP_WATCH
 const port = 5005
@@ -84,6 +85,12 @@ export default {
         contentBase: 'dist',
         historyApiFallback: '/webex-v6/',
         port,
+        onListening () {
+          spawn(process.execPath, ['dev/webex-campaign-api.js'], {
+            cwd: __dirname,
+            stdio: 'inherit',
+          })
+        },
       }),
     !production &&
       livereload({

@@ -126,19 +126,13 @@ export default {
         // set first name and last name to user's JDS customer name
         this.form.firstName = this.jdsIdentity.firstName
         this.form.lastName = this.jdsIdentity.lastName
-        try {
-          this.form.phone = this.getIdentity('phone').values[0]
-        } catch (e) {
-          // continue without phone
-        }
+        const phone = this.jdsIdentity.phone
+        this.form.phone = Array.isArray(phone) && phone.length ? phone[0] : ''
       }
     },
     clickSend () {
       console.log('send one contact to outbound campaign:', this.form)
       this.sendOneOutboundContact(this.form)
-    },
-    getIdentity (type) {
-      return this.jdsIdentity.identities.find(v => v.type === type)
     },
   },
 }

@@ -42,7 +42,7 @@
         <outbound v-if="isProvisioned" />
 
         <!-- Webex Campaign -->
-        <webex-campaign v-if="isProvisioned && (isAdmin || isAdminSu)" />
+        <webex-campaign v-if="isProvisioned" />
 
         <!-- Agent Desktop Layout -->
         <desktop-layout v-if="isProvisioned" />

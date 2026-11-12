@@ -2,7 +2,7 @@
   <div class="tile is-parent">
     <article
     class="tile is-child box"
-    style="border: 1px solid rgb(204, 204, 204);"
+    style="border: 1px solid var(--hairline);"
     >
       <!-- name -->
       <p class="title" style="white-space:nowrap">

@@ -1,7 +1,7 @@
 <template>
-  <panel aria-id="version-copyright" style="border-radius: 6px;">
-    <div style="display: flex; flex-direction: column; align-items: center; ">
-      <cisco-logo style="width: 4rem; height: 4rem;" />
+  <panel aria-id="version-copyright">
+    <div class="app-footer">
+      <cisco-mark class="app-footer-logo" />
       <small> 
         UI Version {{ uiVersion }}
       </small>
@@ -17,11 +17,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import CiscoLogo from '../components/cisco-logo'
+import CiscoMark from '../components/cisco-mark'
 
 export default {
   components: {
-    CiscoLogo
+    CiscoMark
   },
 
   computed: {
@@ -32,3 +32,26 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.app-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  color: var(--fg-faint);
+  font-size: 12px;
+
+  small {
+    font-size: 12px;
+  }
+}
+
+.app-footer-logo {
+  display: block;
+  height: 2rem;
+  width: auto;
+  margin-bottom: 8px;
+  color: var(--fg-strong);
+}
+</style>

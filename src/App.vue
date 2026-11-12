@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div class="app-shell">
+    <!-- page background glow -->
+    <ambient-bg />
     <!-- top navbar -->
     <navbar />
     <!-- main -->
@@ -72,6 +74,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import AiAgent from './components/ai-agent'
+import AmbientBg from './components/ambient-bg'
 import Navbar from './components/navbar'
 import Welcome from './components/welcome'
 import DemoVideos from './components/demo-videos'
@@ -94,6 +97,7 @@ import WebexConnect from './components/webex-connect'
 export default {
   components: {
     AiAgent,
+    AmbientBg,
     Navbar,
     Welcome,
     DemoVideos,

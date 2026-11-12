@@ -11,8 +11,8 @@ const getters = {
     } else {
       // development
       // use local services
-      authUrlBase = 'http://localhost:3032/api/v1/auth'
-      verticalUrlBase = 'http://localhost:3033/api/v1/verticals'
+      // authUrlBase = 'http://localhost:3032/api/v1/auth'
+      // verticalUrlBase = 'http://localhost:3033/api/v1/verticals'
 
       // use production services in development
       authUrlBase = 'https://dcloud-collab-toolbox-rtp.cxdemo.net/api/v1/auth'

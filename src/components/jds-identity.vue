@@ -2,7 +2,7 @@
   <div class="tile is-parent">
     <article
     class="tile is-child box"
-    style="border: 1px solid rgb(204, 204, 204); position: relative;"
+    style="border: 1px solid var(--hairline); position: relative;"
     >
       <b-loading :active="isLoading || isWorking" :is-full-page="false" />
       <p class="title" style="white-space:nowrap">

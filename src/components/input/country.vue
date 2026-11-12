@@ -15,7 +15,7 @@
     v-if="countries.includes('us')"
     v-model="country"
     native-value="US"
-    type="is-success is-light is-outlined"
+    type="is-success"
     >
       <span>US</span>
     </b-radio-button>
@@ -25,7 +25,7 @@
     v-if="countries.includes('uk')"
     v-model="country"
     native-value="UK"
-    type="is-success is-light is-outlined"
+    type="is-success"
     >
       <span>UK</span>
     </b-radio-button>
@@ -35,7 +35,7 @@
     v-if="countries.includes('sng')"
     v-model="country"
     native-value="SNG"
-    type="is-success is-light is-outlined"
+    type="is-success"
     >
       <span>SNG</span>
     </b-radio-button>

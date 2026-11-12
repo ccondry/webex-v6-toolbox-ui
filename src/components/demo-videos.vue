@@ -32,7 +32,7 @@ export default {
   data () {
     return {
       pageUrl: 'https://app.vidcast.io/pages/1623560b-4ddf-4fb6-8673-ff8f328226a3',
-      embedUrl: 'https://app.vidcast.io/pages/embed/1623560b-4ddf-4fb6-8673-ff8f328226a3?theme=light'
+      embedUrl: 'https://app.vidcast.io/pages/embed/1623560b-4ddf-4fb6-8673-ff8f328226a3?theme=dark'
     }
   }
 }
@@ -50,7 +50,7 @@ export default {
 .demo-videos-frame {
   width: 100%;
   height: 36rem;
-  border: 1px solid rgb(204, 204, 204);
+  border: 1px solid var(--hairline);
 }
 
 .demo-videos-frame iframe {

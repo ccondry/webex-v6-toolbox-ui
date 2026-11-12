@@ -7,7 +7,7 @@
       v-if="channels.includes('sms')"
       v-model="channel"
       native-value="sms"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>SMS</span>
       </b-radio-button>
@@ -17,7 +17,7 @@
       v-if="channels.includes('whatsapp')"
       v-model="channel"
       native-value="whatsapp"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>Whatsapp</span>
       </b-radio-button>
@@ -27,7 +27,7 @@
       v-if="channels.includes('amb')"
       v-model="channel"
       native-value="amb"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>AMB</span>
       </b-radio-button>
@@ -37,7 +37,7 @@
       v-if="channels.includes('rcs')"
       v-model="channel"
       native-value="rcs"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>RCS</span>
       </b-radio-button>
@@ -47,7 +47,7 @@
       v-if="channels.includes('gmb')"
       v-model="channel"
       native-value="gmb"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>GBM</span>
       </b-radio-button>
@@ -57,7 +57,7 @@
       v-if="channels.includes('instagram')"
       v-model="channel"
       native-value="instagram"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>IG</span>
       </b-radio-button>
@@ -67,7 +67,7 @@
       v-if="channels.includes('facebook')"
       v-model="channel"
       native-value="facebook"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>FB</span>
       </b-radio-button>

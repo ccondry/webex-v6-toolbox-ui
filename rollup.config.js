@@ -14,30 +14,42 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import copy from 'rollup-plugin-copy'
 import cleaner from 'rollup-plugin-cleaner'
 import { spawn } from 'child_process'
+import { mkdirSync } from 'fs'
 
 const production = !process.env.ROLLUP_WATCH
 const port = 5005
+const outputDir = 'dist/webex-v6'
+
+// livereload can't watch a directory that doesn't exist yet
+if (!production) {
+  mkdirSync(outputDir, { recursive: true })
+}
 
 export default {
   input: 'src/main.js',
   output: {
-    dir: 'dist/webex-v6',
+    dir: outputDir,
     entryFileNames: 'app.js',
     format: 'iife',
     sourcemap: !production ? 'inline' : false,
     name: 'app',
   },
   plugins: [
-    cleaner({
-      targets: [
-        'dist'
-      ]
-    }),
+    // cleaning on every watch rebuild deletes the served files and breaks the
+    // livereload watcher, so only clean for production builds
+    production &&
+      cleaner({
+        targets: [
+          'dist'
+        ]
+      }),
     copy({
       targets: [
-        { src: 'src/index.html', dest: 'dist/webex-v6' },
-        { src: 'src/assets/*', dest: 'dist/webex-v6/assets' }
-      ]
+        { src: 'src/index.html', dest: outputDir },
+        { src: 'src/assets/*', dest: `${outputDir}/assets` }
+      ],
+      // re-copying on every watch rebuild triggers a livereload per file
+      copyOnce: !production
     }),
     json(),
     alias({
@@ -93,7 +105,9 @@ export default {
       }),
     !production &&
       livereload({
-        watch: 'dist'
+        watch: outputDir,
+        // let rollup finish writing the bundle before the browser fetches it
+        delay: 300
       }),
   ],
   watch: {

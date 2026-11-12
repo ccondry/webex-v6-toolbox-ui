@@ -56,7 +56,11 @@ export default {
       entries: [{ find: 'src', replacement: __dirname + '/src' }],
     }),
     image(),
-    postcss({ extract: 'app.css', config: { path: 'postcss.config.js' } }),
+    postcss({
+      extract: 'app.css',
+      to: `${outputDir}/app.css`,
+      config: { path: 'postcss.config.js' }
+    }),
     requireContext(),
     nodeResolve({
       jsnext: true,

@@ -4,6 +4,10 @@ import store from './store'
 // common panel component
 import Panel from './components/panel'
 import Copy from './components/copy'
+import '@fontsource/inter/latin-400'
+import '@fontsource/inter/latin-500'
+import '@fontsource/inter/latin-600'
+import '@fontsource/inter/latin-700'
 import './style.scss'
 
 // use 'buefy/src' when running from git,

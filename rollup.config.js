@@ -18,6 +18,7 @@ import { mkdirSync } from 'fs'
 
 const production = !process.env.ROLLUP_WATCH
 const port = 5005
+const livereloadPort = 35730
 const outputDir = 'dist/webex-v6'
 
 // livereload can't watch a directory that doesn't exist yet
@@ -110,6 +111,7 @@ export default {
     !production &&
       livereload({
         watch: outputDir,
+        port: livereloadPort,
         // let rollup finish writing the bundle before the browser fetches it
         delay: 300
       }),

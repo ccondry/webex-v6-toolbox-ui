@@ -99,6 +99,15 @@ a {
   &:focus:not(:active) {
     box-shadow: 0 0 0 2px var(--app-bg), 0 0 0 4px $color;
   }
+
+  // Bulma fills disabled color buttons with $color, which hides the text
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: var(--surface);
+    border-color: $color;
+    color: $color;
+    box-shadow: none;
+  }
 }
 
 .button.is-primary,

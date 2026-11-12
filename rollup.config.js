@@ -9,7 +9,6 @@ import vue from 'rollup-plugin-vue'
 import esbuild from 'rollup-plugin-esbuild'
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
-import filesize from 'rollup-plugin-filesize'
 import requireContext from 'rollup-plugin-require-context'
 import { visualizer } from 'rollup-plugin-visualizer'
 import copy from 'rollup-plugin-copy'
@@ -96,7 +95,6 @@ export default {
       livereload({
         watch: 'dist'
       }),
-    production && filesize(),
   ],
   watch: {
     clearScreen: true,

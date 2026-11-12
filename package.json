@@ -98,6 +98,9 @@
     },
     "source-map-resolve": {
       "decode-uri-component": "^0.5.1"
+    },
+    "rollup-plugin-serve": {
+      "mime": "^3.0.0"
     }
   },
   "lint-staged": {

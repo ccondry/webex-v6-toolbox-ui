@@ -5,7 +5,7 @@
       <b-radio-button
       v-model="app"
       native-value="app"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>Web</span>
       </b-radio-button>
@@ -14,7 +14,7 @@
       <b-radio-button
       v-model="app"
       native-value="sms"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>SMS</span>
       </b-radio-button>
@@ -23,7 +23,7 @@
       <b-radio-button
       v-model="app"
       native-value="whatsapp"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>Whatsapp</span>
       </b-radio-button>
@@ -32,7 +32,7 @@
       <b-radio-button
       v-model="app"
       native-value="facebook"
-      type="is-success is-light is-outlined"
+      type="is-success"
       >
         <span>Facebook</span>
       </b-radio-button>

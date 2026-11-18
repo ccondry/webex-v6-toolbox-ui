@@ -3,6 +3,18 @@
 Version numbers are semver-compatible dates in YYYY.MM.DD-X format,
 where X is the revision number
 
+# 2026.11.18
+### Changes
+
+* **Site:** Apply the dark glass theme from the toolbox landing page.
+* **Header:** Use the shared dCloud Collaboration Toolbox header, with Home,
+Webex Contact Center and Admin links, the dCloud Applications menu and the
+account menu.
+* **Footer:** Replace the copyright and version panel with the shared page
+footer.
+* **Site:** Replace native select menus with a styled dropdown.
+* **Webex Campaign:** Make Webex Campaign available to everyone.
+
 # 2023.01.20
 ### Changes
 

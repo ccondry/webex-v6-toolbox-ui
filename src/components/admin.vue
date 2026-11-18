@@ -20,7 +20,7 @@
 
     <!-- status -->
     <b-field label="Provision Status">
-      <b-select v-model="model.provision">
+      <glass-select v-model="model.provision">
         <option
         v-for="status of provisionStatuses"
         :key="status"
@@ -28,7 +28,7 @@
         >
           {{ status }}
         </option>
-      </b-select>
+      </glass-select>
     </b-field>
 
     <!-- VPN Username -->

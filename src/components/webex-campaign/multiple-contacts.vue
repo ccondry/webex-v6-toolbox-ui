@@ -18,7 +18,7 @@
     </b-field>
 
     <b-field label="Campaign">
-      <b-select v-model="region" expanded>
+      <glass-select v-model="region" expanded>
         <option
         v-for="campaign in campaignRegions"
         :key="campaign.region"
@@ -26,7 +26,7 @@
         >
           {{ campaign.label }}
         </option>
-      </b-select>
+      </glass-select>
     </b-field>
     <p>
       This file will be added to {{ selectedCampaignName }}.

@@ -9,13 +9,13 @@
     <div style="display: flex; justify-content: space-around;">
       <b-field style="position: relative;">
         <b-loading :active="isLoading || isWorking" :is-full-page="false" />
-        <b-select
+        <glass-select
         v-model="value"
         :disabled="isWorking"
         >
           <option value="scripted">Scripted</option>
           <option value="autonomous">Autonomous</option>
-        </b-select>
+        </glass-select>
       </b-field>
     </div>
   </panel>

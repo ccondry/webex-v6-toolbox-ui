@@ -13,10 +13,11 @@
     <div style="display: flex; justify-content: space-around;">
       <b-field style="position: relative;">
         <b-loading :active="isLoading || isWorking" :is-full-page="false" />
-        <b-select
+        <glass-select
         v-model="vertical" 
         :disabled="working.app.user"
-        @change.native="verticalChanged" 
+        placeholder="Choose Your Demo Vertical"
+        @input="verticalChanged" 
         >
           <option :value="null" disabled selected>
             Choose Your Demo Vertical
@@ -38,7 +39,7 @@
           >
             {{ `${brand.name} (${brand.id})` }}
           </option>
-        </b-select>
+        </glass-select>
       </b-field>
     </div>
 
@@ -192,11 +193,11 @@ export default {
       const selectedVertical = this.verticals.find(v => v.id === this.vertical)
       console.log('selectedVertical = ', selectedVertical)
     },
-    verticalChanged (e) {
-      console.log('vertical selected:', e.target.value)
+    verticalChanged (vertical) {
+      console.log('vertical selected:', vertical)
       // construct data body to send to API
       const data = {
-        vertical: e.target.value
+        vertical
       }
       // save vertical
       this.saveUserDemoConfig(data)

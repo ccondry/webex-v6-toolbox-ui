@@ -4,6 +4,7 @@ import store from './store'
 // common panel component
 import Panel from './components/panel'
 import Copy from './components/copy'
+import GlassSelect from './components/glass-select'
 import '@fontsource/inter/latin-400'
 import '@fontsource/inter/latin-500'
 import '@fontsource/inter/latin-600'
@@ -22,6 +23,8 @@ Vue.use(Buefy)
 Vue.component('panel', Panel)
 // load clipboard copy button component globally
 Vue.component('copy', Copy)
+// load styled select menu component globally
+Vue.component('GlassSelect', GlassSelect)
 
 new Vue({
   render: h => h(App),

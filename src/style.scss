@@ -88,16 +88,19 @@ $mdi-font-path: '~@mdi/font/fonts';
 
 .app-shell {
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   overflow: clip;
 }
 
-// make container fill viewport, above the ambient background
+// make container fill viewport above the footer, above the ambient background
 #main-container {
   position: relative;
   z-index: 10;
-  min-height: 100vh;
-  padding-top: 1rem;
+  flex: 1 0 auto;
+  width: 100%;
+  padding-top: calc(56px + 1rem);
 }
 
 // each route content container class - centered

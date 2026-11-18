@@ -1,29 +1,19 @@
 <template>
-  <panel aria-id="version-copyright">
-    <div class="app-footer">
-      <cisco-mark class="app-footer-logo" />
-      <small> 
-        UI Version {{ uiVersion }}
-      </small>
-      <small>
-        Auth API Version {{ authApiVersion }}
-      </small>
-      <small>
-        © 2021 Cisco and/or its affiliates. All rights reserved.
-      </small>
+  <footer class="app-footer">
+    <div class="app-footer-inner">
+      <p class="app-footer-copyright">© 2026 Cisco Systems, Inc.</p>
+      <div class="app-footer-versions">
+        <span>UI version {{ uiVersion }}</span>
+        <span>Auth API version {{ authApiVersion }}</span>
+      </div>
     </div>
-  </panel>
+  </footer>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import CiscoMark from '../components/cisco-mark'
 
 export default {
-  components: {
-    CiscoMark
-  },
-
   computed: {
     ...mapGetters([
       'uiVersion',
@@ -35,23 +25,38 @@ export default {
 
 <style lang="scss">
 .app-footer {
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
+  padding: 0 12px 12px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.app-footer-inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  color: var(--fg-faint);
-  font-size: 12px;
+  gap: 12px;
+  min-height: 56px;
+  padding: 17px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
 
-  small {
-    font-size: 12px;
+  @media (min-width: 640px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 
-.app-footer-logo {
-  display: block;
-  height: 2rem;
-  width: auto;
-  margin-bottom: 8px;
-  color: var(--fg-strong);
+.app-footer-copyright {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.app-footer-versions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  color: var(--fg-muted);
 }
 </style>

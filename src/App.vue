@@ -63,11 +63,10 @@
 
         <!-- debug info -->
         <!-- <debug v-if="!isProduction" /> -->
-
-        <!-- Copyright and version footer -->
-        <app-footer />
       </section>
     </div>
+    <!-- copyright and version footer -->
+    <app-footer />
   </div>
 </template>
 
